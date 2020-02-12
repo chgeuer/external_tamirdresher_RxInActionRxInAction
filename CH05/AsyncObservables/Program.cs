@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reactive.Disposables;
-using System.Reactive.Linq;
-using System.Text;
-using System.Threading;
-using AsyncObservables.SearchEngine;
-using AsyncObservables.Services;
-using Helpers;
-
-namespace AsyncObservables
+﻿namespace AsyncObservables
 {
+    using System;
+    using System.Linq;
+    using System.Reactive.Disposables;
+    using System.Reactive.Linq;
+    using System.Threading;
+    using AsyncObservables.SearchEngine;
+    using AsyncObservables.Services;
+    using Helpers;
+
     class Program
     {
         static void Main(string[] args)
@@ -55,8 +53,9 @@ namespace AsyncObservables
             //
             primes =
                 Observable.Range(1, 10)
-                    .SelectMany((number) => svc.IsPrimeAsync(number),
-                                 (number, isPrime) => new { number, isPrime })
+                    .SelectMany(
+                        (number) => svc.IsPrimeAsync(number),
+                        (number, isPrime) => new { number, isPrime })
                     .Where(x => x.isPrime)
                     .Select(x => x.number);
 
@@ -103,8 +102,6 @@ namespace AsyncObservables
             // Waiting for the previous example to finish
             resetEvent.WaitOne();
         }
-
-
 
         public static void SearchingWithAsyncAwait()
         {

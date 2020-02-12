@@ -1,7 +1,8 @@
-using System.Threading.Tasks;
-
 namespace AsyncObservables.Services
 {
+    using System;
+    using System.Threading.Tasks;
+
     class VariableTimePrimeCheckService : PrimeCheckService
     {
         private readonly int _numberToDelay;
@@ -15,7 +16,7 @@ namespace AsyncObservables.Services
         {
             if (number == _numberToDelay)
             {
-                await Task.Delay(2000);
+                await Task.Delay(TimeSpan.FromSeconds(2));
             }
             return await base.IsPrimeAsync(number);
         }

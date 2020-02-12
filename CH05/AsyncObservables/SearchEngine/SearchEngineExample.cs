@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reactive.Linq;
-using System.Reactive.Threading.Tasks;
-
-namespace AsyncObservables.SearchEngine
+﻿namespace AsyncObservables.SearchEngine
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Reactive.Linq;
+    using System.Reactive.Threading.Tasks;
+
     class SearchEngineExample
     {
-
-
         public static IObservable<string> Search_WithAsyncAwait(string term)
         {
             return Observable.Create<string>(async o =>
@@ -52,7 +50,6 @@ namespace AsyncObservables.SearchEngine
             });
         }
 
-
         public static IObservable<string> Search_ConcatingTasks(string term)
         {
             var searchEngineA = new SearchEngineA();
@@ -74,8 +71,5 @@ namespace AsyncObservables.SearchEngine
                 .Concat(resultsB)
                 .SelectMany(x => x);
         }
-
-
-      
     }
 }
