@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Helpers;
+using System;
 using System.Collections.Generic;
 using System.Reactive.Linq;
-using System.Reactive.Subjects;
-using System.Security.Policy;
-using System.Xml;
-using Helpers;
 
 namespace BasicQueryOperators.Examples
 {
@@ -26,7 +23,7 @@ namespace BasicQueryOperators.Examples
                 new NewsItem
                 {
                     Title = "NewsItem1",
-                    Url = new Url("https://news.com/NewsItem1"),
+                    Url = new Uri("https://news.com/NewsItem1"),
                     Images =
                         new[]
                         {
@@ -37,7 +34,7 @@ namespace BasicQueryOperators.Examples
                 new NewsItem
                 {
                     Title = "NewsItem2",
-                    Url = new Url("https://news.com/NewsItem2"),
+                    Url = new Uri("https://news.com/NewsItem2"),
                     Images =
                         new[] {new NewsImage {ImageName = "Item2Image1"}},
                 }
@@ -68,7 +65,7 @@ var newsImages =
                 new NewsItem
                 {
                     Title = "NewsItem1",
-                    Url = new Url("https://news.com/NewsItem1"),
+                    Url = new Uri("https://news.com/NewsItem1"),
                     Images =
                         new[]
                         {
@@ -79,7 +76,7 @@ var newsImages =
                 new NewsItem
                 {
                     Title = "NewsItem2",
-                    Url = new Url("https://news.com/NewsItem2"),
+                    Url = new Uri("https://news.com/NewsItem2"),
                     Images =
                         new[] {new NewsImage {ImageName = "Item2Image1"}},
                 }
@@ -140,14 +137,12 @@ news.SelectMany(n => n.Images,
         {
             AddToHeadlines(img.NewsImage);
         }
-
-
     }
 
     public class NewsItem
     {
         public string Title { get; set; }
-        public Url Url { get; set; }
+        public Uri Url { get; set; }
         public IEnumerable<NewsImage> Images { get; set; }
 
         public override string ToString()
@@ -171,6 +166,6 @@ news.SelectMany(n => n.Images,
     class NewImageViewModel
     {
         public NewsImage NewsImage { get; set; }
-        public Url ItemUrl { get; set; }
+        public Uri ItemUrl { get; set; }
     }
 }

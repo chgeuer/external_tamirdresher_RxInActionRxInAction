@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reactive;
-using System.Reactive.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
-using Helpers;
-
-namespace NonStandardEvents
+﻿namespace NonStandardEvents
 {
+    using System;
+    using System.Reactive;
+    using System.Reactive.Linq;
+    using Helpers;
+
     class Program
     {
         static void Main(string[] args)

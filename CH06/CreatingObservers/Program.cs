@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reactive;
-using System.Reactive.Disposables;
-using System.Reactive.Linq;
-using System.Reactive.Threading.Tasks;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Helpers;
-
-namespace CreatingObservers
+﻿namespace CreatingObservers
 {
+    using Helpers;
+    using System;
+    using System.Linq;
+    using System.Reactive;
+    using System.Reactive.Linq;
+    using System.Threading;
+    using System.Threading.Tasks;
+
     class Program
     {
         static void Main(string[] args)
@@ -24,11 +19,8 @@ namespace CreatingObservers
             SubscribeWithCancellationInsteadOfDisposable();
             ObserverCreate();
             
-            
             Console.ReadLine();
         }
-
-       
 
         private static void ObserverCreate()
         {
