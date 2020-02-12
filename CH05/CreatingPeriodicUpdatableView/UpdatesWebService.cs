@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CreatingPeriodicUpdatableView
+﻿namespace CreatingPeriodicUpdatableView
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
     class UpdatesWebService
     {
         public async Task<IEnumerable<string>> GetUpdatesAsync()
@@ -12,7 +12,9 @@ namespace CreatingPeriodicUpdatableView
             Console.WriteLine("GetUpdatesAsync was called");
             await Task.Delay(1000);//simulate latency
 
-            return Enumerable.Range(1, 5).Select(x => String.Format("An Update {0}, {1}", x, DateTime.Now.ToLongTimeString()));
+            return Enumerable
+                .Range(1, 5)
+                .Select(x => $"An Update {x}, {DateTime.Now.ToLongTimeString()}");
         }
     }
 }

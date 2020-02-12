@@ -27,7 +27,7 @@
 
         private static void RunningAsyncCodeInWhere()
         {
-            
+
             Demo.DisplayHeader("Running async code int the pipeline - order is not determenistic");
 
             var svc = new PrimeCheckService();
@@ -69,7 +69,7 @@
 
         private static void ContrlingOrderOfAsyncCode()
         {
-            
+
             Demo.DisplayHeader("Contrling the order of async code with Concat");
 
             var resetEvent = new AutoResetEvent(false);
@@ -135,7 +135,7 @@
                     }
                 })
                 .Select(x => x.result) //rollback the observable to be IObservable<string> 
-                 .DoLast(() => exampleResetEvent.Set(), delay: TimeSpan.FromSeconds(1))
+                .DoLast(() => exampleResetEvent.Set(), delay: TimeSpan.FromSeconds(1))
                 .SubscribeConsole("results");
 
             exampleResetEvent.WaitOne();
@@ -143,7 +143,7 @@
 
         public static void SearchingWithConcatingTasks()
         {
-            
+
             Demo.DisplayHeader("Converting Tasks to observables");
 
             var results = SearchEngineExample.Search_ConcatingTasks("Rx");
@@ -154,7 +154,7 @@
 
         public static void SearchingWithDefferedAsync()
         {
-            
+
             Demo.DisplayHeader("Defferd async");
 
             var results = SearchEngineExample.Search_DefferedConcatingTasks("Rx");
