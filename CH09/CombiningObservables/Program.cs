@@ -1,13 +1,13 @@
-﻿using System;
-using System.Reactive.Linq;
-using System.Reactive.Subjects;
-using System.Reactive.Threading.Tasks;
-using System.Threading;
-using System.Threading.Tasks;
-using Helpers;
-
-namespace CombiningObservables
+﻿namespace CombiningObservables
 {
+    using Helpers;
+    using System;
+    using System.Reactive.Linq;
+    using System.Reactive.Subjects;
+    using System.Reactive.Threading.Tasks;
+    using System.Threading;
+    using System.Threading.Tasks;
+
     class Program
     {
         static void Main(string[] args)
@@ -75,7 +75,8 @@ namespace CombiningObservables
         {
             Demo.DisplayHeader("The Merge operator - allows also to merge observables emitted from another observable");
 
-            IObservable<string> texts = ObservableEx.FromValues("Hello", "World");
+
+            IObservable<string> texts = ObservableExSSSS.FromValues("Hello", "World");
             texts
                 .Select(txt => Observable.Return(txt + "-Result"))
                 .Merge()
@@ -141,13 +142,12 @@ namespace CombiningObservables
             Demo.DisplayHeader("The Zip operator - combines values with the same index from two observables");
 
             //temperatures from two sensors (in celsius)
-            IObservable<double> temp1 = ObservableEx.FromValues(20.0, 21, 22);
-            IObservable<double> temp2 = ObservableEx.FromValues(22.0, 21, 24);
+            IObservable<double> temp1 = ObservableExSSSS.FromValues(20.0, 21, 22);
+            IObservable<double> temp2 = ObservableExSSSS.FromValues(22.0, 21, 24);
 
             temp1
                 .Zip(temp2, (t1, t2) => (t1 + t2) / 2)
                 .SubscribeConsole("Avg Temp.");
-
         }
     }
 }

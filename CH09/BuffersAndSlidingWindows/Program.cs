@@ -86,8 +86,8 @@ namespace BuffersAndSlidingWindows
         {
             Demo.DisplayHeader("The Window operator - each window is an observable that can be used with an aggregation function");
 
-            var donationsWindow1 = ObservableEx.FromValues(50M, 55, 60);
-            var donationsWindow2 = ObservableEx.FromValues(49M, 48, 45);
+            var donationsWindow1 = ObservableExSSSS.FromValues(50M, 55, 60);
+            var donationsWindow2 = ObservableExSSSS.FromValues(49M, 48, 45);
 
             IObservable<decimal> donations =
                 donationsWindow1.Concat(donationsWindow2.DelaySubscription(TimeSpan.FromSeconds(1.5)));

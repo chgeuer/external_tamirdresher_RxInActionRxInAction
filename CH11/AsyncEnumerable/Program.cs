@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AsyncEnumerables
+﻿namespace AsyncEnumerables
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
     class Program
     {
-    
-        static void Main(string[] args)
+        static void Main()
         {
             IAsyncEnumerable<Task<int>> asyncEnumerable = Enumerable.Empty<Task<int>>().ToAsyncEnumerable();
             IAsyncEnumerable<int> enumerable = Task.FromResult(4).ToAsyncEnumerable();
@@ -22,14 +20,10 @@ namespace AsyncEnumerables
             //    return i;
             //})
             queueItems
-            .Do(x => Console.WriteLine(DateTime.Now))
-            .ForEachAsync(x => Console.WriteLine("out " + x));
-
+                .Do(x => Console.WriteLine(DateTime.Now))
+                .ForEachAsync(x => Console.WriteLine("out " + x));
 
             Console.ReadLine();
-
         }
     }
-
-    
 }

@@ -1,11 +1,10 @@
-﻿using System;
-using System.Reactive;
-using System.Reactive.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Helpers
+﻿namespace Helpers
 {
+    using System;
+    using System.Reactive.Linq;
+    using System.Threading;
+    using System.Threading.Tasks;
+
     public static class Extensions
     {
         /// <summary>

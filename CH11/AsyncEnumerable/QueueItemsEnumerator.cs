@@ -6,18 +6,21 @@ namespace AsyncEnumerables
 {
     class QueueItemsEnumerator : IAsyncEnumerator<QueueItem>
     {
-        private QueueClient _client;
+        private readonly QueueClient _client;
+        private readonly CancellationToken cancellationToken;
 
-        public QueueItemsEnumerator(QueueClient client)
+        public QueueItemsEnumerator(QueueClient client, CancellationToken cancellationToken)
         {
             _client = client;
+            this.cancellationToken = cancellationToken;
         }
+
         public void Dispose()
         {
             _client.Dispose();
         }
 
-        public async Task<bool> MoveNext(CancellationToken cancellationToken)
+        public async ValueTask<bool> MoveNextAsync()
         {
             if (cancellationToken.IsCancellationRequested)
             {
@@ -26,6 +29,11 @@ namespace AsyncEnumerables
             await Task.Delay(2000);
             Current = await _client.ReadNextItemAsync();
             return true;
+        }
+
+        public ValueTask DisposeAsync()
+        {
+            throw new System.NotImplementedException();
         }
 
         public QueueItem Current { get; private set; }

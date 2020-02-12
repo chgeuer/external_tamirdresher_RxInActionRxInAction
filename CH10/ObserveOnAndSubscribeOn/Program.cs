@@ -22,7 +22,7 @@ namespace ObserveOnAndSubscribeOn
         {
             Demo.DisplayHeader("using SubscribeOn and ObserveOn together and their effect");
 
-            ObservableEx.FromValues(0,1,2,3,4,5)
+            ObservableExSSSS.FromValues(0,1,2,3,4,5)
     .Take(3)
     .LogWithThread("A")
     .Where(x => x%2 == 0)

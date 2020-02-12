@@ -100,7 +100,7 @@ observable
         {
             Demo.DisplayHeader("Throttle operator - each notification can be shifted independently by providing observable that signals the delay is over");
 
-            var observable = ObservableEx.FromValues(4, 1, 2, 3);
+            var observable = ObservableExSSSS.FromValues(4, 1, 2, 3);
 
             observable
                 .Timestamp()

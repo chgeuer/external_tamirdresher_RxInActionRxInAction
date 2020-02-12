@@ -1,13 +1,7 @@
-﻿using System;
-
-namespace Helpers
+﻿namespace Helpers
 {
-    /// <summary>
-    /// Listing 4.2
-    /// An observer that output to the console each time the OnNext, OnError and OnComplete occurs
-    /// 
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
+    using System;
+
     public class ConsoleObserver<T> : IObserver<T>
     {
         private readonly string _name;
@@ -19,18 +13,18 @@ namespace Helpers
 
         public void OnNext(T value)
         {
-            Console.WriteLine("{0} - OnNext({1})", _name, value);
+            Console.WriteLine($"{_name} - OnNext({value})");
         }
 
         public void OnError(Exception error)
         {
-            Console.WriteLine("{0} - OnError:", _name);
-            Console.WriteLine("\t {0}", error);
+            Console.WriteLine($"{_name} - OnError:");
+            Console.WriteLine($"\t {error.Message}");
         }
 
         public void OnCompleted()
         {
-            Console.WriteLine("{0} - OnCompleted()", _name);
+            Console.WriteLine($"{_name} - OnCompleted()");
         }
     }
 }
