@@ -1,5 +1,3 @@
-using System;
-
 namespace BasicAggregateOperators
 {
     internal class StudentGrade
@@ -8,9 +6,6 @@ namespace BasicAggregateOperators
         public string Name { get; set; }
         public double Grade { get; set; }
 
-        public override string ToString()
-        {
-            return String.Format("Id: {0}, Name: {1}, Grade: {2}", Id, Name, Grade);
-        }
+        public override string ToString() => $"Id: {Id}, Name: {Name}, Grade: {Grade}";
     }
 }

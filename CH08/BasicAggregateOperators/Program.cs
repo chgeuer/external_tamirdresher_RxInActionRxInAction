@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reactive.Linq;
-using System.Reactive.Subjects;
-using System.Text;
-using System.Threading.Tasks;
-using Helpers;
-
-namespace BasicAggregateOperators
+﻿namespace BasicAggregateOperators
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Reactive.Linq;
+    using System.Reactive.Subjects;
+    using Helpers;
+
     class Program
     {
         static void Main(string[] args)
@@ -30,27 +28,27 @@ namespace BasicAggregateOperators
         {
             Demo.DisplayHeader("The Aggregate operators - the resultSelector function transforms the final accumulator value into the result value");
 
-Subject<int> numbers = new Subject<int>();
+            Subject<int> numbers = new Subject<int>();
 
-numbers.Aggregate(
-    new SortedSet<int>(),
-    (largest, item) =>
-    {
-        largest.Add(item);
-        if (largest.Count > 2)
-        {
-            largest.Remove(largest.First()); //keeping only the first two largest items
+            numbers.Aggregate(
+                new SortedSet<int>(),
+                (largest, item) =>
+                {
+                    largest.Add(item);
+                    if (largest.Count > 2)
+                    {
+                        largest.Remove(largest.First()); //keeping only the first two largest items
         }
-        return largest;
-    },
-    largest => largest.FirstOrDefault()) //since the collection is sorted and contain two items at most, the first items is the second largest one 
-    .SubscribeConsole();
+                    return largest;
+                },
+                largest => largest.FirstOrDefault()) //since the collection is sorted and contain two items at most, the first items is the second largest one 
+                .SubscribeConsole();
 
-numbers.OnNext(3);
-numbers.OnNext(1);
-numbers.OnNext(4);
-numbers.OnNext(2);
-numbers.OnCompleted();
+            numbers.OnNext(3);
+            numbers.OnNext(1);
+            numbers.OnNext(4);
+            numbers.OnNext(2);
+            numbers.OnCompleted();
 
         }
 
@@ -154,8 +152,6 @@ numbers.OnCompleted();
             numbers.OnNext(4);
             numbers.OnNext(5);
             numbers.OnCompleted();
-
-
         }
 
         private static void Sum()
@@ -166,6 +162,5 @@ numbers.OnCompleted();
                 .Sum()
                 .SubscribeConsole("Sum");
         }
-
     }
 }
