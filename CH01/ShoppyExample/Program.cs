@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Reactive.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ShoppyExample
+﻿namespace ShoppyExample
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Reactive.Linq;
+    using System.Threading.Tasks;
+
     internal class Program
     {
         private static void Main(string[] args)
         {
             var shoppy = new Shoppy();
             shoppy.TestShoppy();
+            Console.ReadLine();
         }
 
         public class Shoppy
@@ -34,7 +34,6 @@ namespace ShoppyExample
 
                 IObservable<Position> myLocation = CreateDummyLocations();
                 Store[] stores = CreateDummyStores();
-
 
                 var storeLocation = stores.ToObservable()
                     .SelectMany(store => myLocation, (store, currentLocation) => new { store, currentLocation });
@@ -59,7 +58,6 @@ namespace ShoppyExample
                                        sizeOrMin,
                                        sizeOrMax
                                    };
-
 
                 iconSize.Subscribe(d => Debug.WriteLine(d));
             }
@@ -125,6 +123,5 @@ namespace ShoppyExample
             }
             #endregion
         }
-
     }
 }

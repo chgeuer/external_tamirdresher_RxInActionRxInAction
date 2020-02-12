@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reactive.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FirstRxExample
+﻿namespace FirstRxExample
 {
+    using System;
+    using System.Linq;
+    using System.Reactive.Linq;
+
     public class RxStockMonitor : IDisposable
     {
-        private IDisposable _subscription;
+        private readonly IDisposable _subscription;
+
+        public IObservable<DrasticChange> DrasticChanges { get; }
 
         public RxStockMonitor(IStockTicker ticker)
         {
@@ -17,11 +16,11 @@ namespace FirstRxExample
 
             //creating an observable from the StockTick event, each notification will carry only the eventargs and will be synchronized
             IObservable<StockTick> ticks =
-                    Observable.FromEventPattern<EventHandler<StockTick>, StockTick>(
-                        h => ticker.StockTick += h, 
-                        h => ticker.StockTick -= h) 
-                        .Select(tickEvent => tickEvent.EventArgs)
-                        .Synchronize();
+                Observable.FromEventPattern<EventHandler<StockTick>, StockTick>(
+                    h => ticker.StockTick += h, 
+                    h => ticker.StockTick -= h) 
+                .Select(tickEvent => tickEvent.EventArgs)
+                .Synchronize();
             
             var drasticChanges =
                 from tick in ticks
@@ -38,10 +37,9 @@ namespace FirstRxExample
                     NewPrice = tickPair[1].Price
                 };
 
-            DrasticChanges = drasticChanges;
+            this.DrasticChanges = drasticChanges;
 
-            _subscription =
-                drasticChanges.Subscribe(change =>
+            this._subscription = drasticChanges.Subscribe(change =>
                     {
                         Console.WriteLine("Stock:{0} has changed with {1} ratio, Old Price:{2} New Price:{3}", change.Symbol,
                             change.ChangeRatio,
@@ -51,8 +49,6 @@ namespace FirstRxExample
                     ex => { /* code that handles erros */}, //#C
                     () => {/* code that handles the observable completenss */}); //#C
         }
-
-        public IObservable<DrasticChange> DrasticChanges { get; }
 
         public void Dispose()
         {

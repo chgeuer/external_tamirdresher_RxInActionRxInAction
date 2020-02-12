@@ -1,7 +1,7 @@
-using System;
-
 namespace ShoppyExample
 {
+    using System;
+
     internal class Position
     {
         public double X { get; set; }
@@ -17,9 +17,7 @@ namespace ShoppyExample
             return DotProduct(diff, diff);
         }
 
-        public static double DotProduct(Position left, Position right)
-        {
-            return Math.Sqrt(left.X * right.X + left.Y * right.Y);
-        }
+        public static double DotProduct(Position left, Position right) => 
+            Math.Sqrt(left.X * right.X + left.Y * right.Y);
     }
 }

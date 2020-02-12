@@ -44,8 +44,6 @@ namespace DelegatesAndLambdas
                     ? 0
                     : (x.Length > y.Length) ? 1 : -1));
             Tools.ForEach(words, Console.WriteLine);
-
-
         }
     }
 }

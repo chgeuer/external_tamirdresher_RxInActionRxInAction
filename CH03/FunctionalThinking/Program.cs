@@ -33,18 +33,19 @@ namespace FunctionalThinking
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(message);
         }
+
         private static void ImmutableStringExample()
         {
             string bookTitle = "Reactive Extensions in Action";
             bookTitle.ToUpper();
             Console.WriteLine("Book Title: {0}", bookTitle);
         }
+
         private static void ImmutableStringFixedExample()
         {
             string bookTitle = "Reactive Extensions in Action";
             string uppercaseTitle = bookTitle.ToUpper();
             Console.WriteLine("Book Title: {0}", uppercaseTitle);
         }
-
     }
 }

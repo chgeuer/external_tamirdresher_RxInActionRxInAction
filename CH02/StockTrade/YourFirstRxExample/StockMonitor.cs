@@ -1,41 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace FirstRxExample
+﻿namespace FirstRxExample
 {
+    using System;
+    using System.Collections.Generic;
+
     class StockMonitor : IDisposable
     {
-        object _stockTickLocker = new object();
         private readonly StockTicker _ticker;
-        Dictionary<string, StockInfo> _stockInfos = new Dictionary<string, StockInfo>();
+
+        private readonly object _stockTickLocker = new object();
+        private readonly Dictionary<string, StockInfo> _stockInfos = new Dictionary<string, StockInfo>();
+
         public StockMonitor(StockTicker ticker)
         {
             _ticker = ticker;
-            ticker.StockTick += OnStockTick;
+            _ticker.StockTick += OnStockTick;
         }
-
-        //rest of the code
 
         void OnStockTick(object sender, StockTick stockTick)
         {
             const decimal maxChangeRatio = 0.1m;
-            StockInfo stockInfo;
             var quoteSymbol = stockTick.QuoteSymbol;
             lock (_stockTickLocker)
             {
-                var stockInfoExists = _stockInfos.TryGetValue(quoteSymbol, out stockInfo);
-                if (stockInfoExists)
+                if (_stockInfos.TryGetValue(quoteSymbol, out StockInfo stockInfo))
                 {
                     var priceDiff = stockTick.Price - stockInfo.PrevPrice;
                     var changeRatio = Math.Abs(priceDiff / stockInfo.PrevPrice); //#A the percentage of change
                     if (changeRatio > maxChangeRatio)
                     {
-                        Console.WriteLine("Stock:{0} has changed with {1} ratio, Old Price:{2} New Price:{3}", quoteSymbol,
-                            changeRatio,
-                            stockInfo.PrevPrice,
-                            stockTick.Price);
+                        Console.WriteLine(
+                            $"Stock:{quoteSymbol} has changed with {changeRatio} ratio, Old Price:{stockInfo.PrevPrice} New Price:{stockTick.Price}");
                     }
-                    _stockInfos[quoteSymbol].PrevPrice = stockTick.Price;
+                    stockInfo.PrevPrice = stockTick.Price;
                 }
                 else
                 {

@@ -25,7 +25,7 @@ namespace FirstRxExample
             /////////////////////////////////////////////////////////////
 
             // Regular events StockMonitor
-            //var stockMonitor = new StockMonitor(_stockTicker);
+            // var stockMonitor = new StockMonitor(_stockTicker);
 
             // Rx StockMonitor - uses Rx to consume and process the stock ticks
             var stockMonitor = new RxStockMonitor(_stockTicker);
@@ -88,10 +88,9 @@ namespace FirstRxExample
                     break;
                 }
                 Console.WriteLine("enter price: ");
-                decimal price;
-                if (decimal.TryParse(Console.ReadLine(), out price))
+                if (decimal.TryParse(Console.ReadLine(), out decimal price))
                 {
-                    stockTicker.Notify(new StockTick() { Price = price, QuoteSymbol = symbol });
+                    stockTicker.Notify(new StockTick { Price = price, QuoteSymbol = symbol });
                 }
                 else
                 {
