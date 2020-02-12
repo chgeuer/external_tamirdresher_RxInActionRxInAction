@@ -1,9 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-  </PropertyGroup>
+      </PropertyGroup>
   <ItemGroup>
     <Reference Include="WindowsBase" />
   </ItemGroup>

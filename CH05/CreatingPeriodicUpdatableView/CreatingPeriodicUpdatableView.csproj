@@ -2,15 +2,12 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    
-   
     <PackageReference Include="System.Reactive" Version="4.3.2" />
     <PackageReference Include="System.Reactive.Core" Version="4.3.2" />
     <PackageReference Include="System.Reactive.Interfaces" Version="4.3.2" />
