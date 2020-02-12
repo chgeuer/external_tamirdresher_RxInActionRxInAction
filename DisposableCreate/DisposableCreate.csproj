@@ -2,21 +2,14 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System.Windows" />
-  </ItemGroup>
-  <ItemGroup>
-    
-   
-    <PackageReference Include="System.Interactive" Version="4.3.2" />
+    <PackageReference Include="System.Interactive" Version="4.0.0" />
     <PackageReference Include="System.Reactive" Version="4.3.2" />
     <PackageReference Include="System.Reactive.Core" Version="4.3.2" />
     <PackageReference Include="System.Reactive.Interfaces" Version="4.3.2" />
     <PackageReference Include="System.Reactive.Linq" Version="4.3.2" />
     <PackageReference Include="System.Reactive.PlatformServices" Version="4.3.2" />
-    <PackageReference Include="System.Reactive.Windows.Threading" Version="4.3.2" />
   </ItemGroup>
 </Project>

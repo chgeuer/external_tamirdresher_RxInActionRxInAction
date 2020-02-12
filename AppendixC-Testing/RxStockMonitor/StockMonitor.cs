@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reactive.Linq;
-using System.Threading.Tasks;
-
-namespace RxStockMonitor
+﻿namespace RxStockMonitor
 {
+    using System;
+    using System.Linq;
+    using System.Reactive.Linq;
+
     public class StockMonitor
     {
-
         public StockMonitor(IStockTicker ticker)
         {
             const decimal maxChangeRatio = 0.1m;
@@ -39,14 +36,5 @@ namespace RxStockMonitor
         }
 
         public IObservable<DrasticChange> DrasticChanges { get; }
-
-    }
-
-    public class DrasticChange
-    {
-        public decimal NewPrice { get; set; }
-        public string Symbol { get; set; }
-        public decimal ChangeRatio { get; set; }
-        public decimal OldPrice { get; set; }
     }
 }
