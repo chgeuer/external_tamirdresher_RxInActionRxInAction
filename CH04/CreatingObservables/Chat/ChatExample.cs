@@ -1,9 +1,9 @@
-﻿using System;
-using Helpers;
+﻿using Helpers;
+using System;
 
 namespace CreatingObservables.Chat
 {
-    static class ChatExample
+    internal static class ChatExample
     {
         public static void Run()
         {
@@ -21,6 +21,7 @@ namespace CreatingObservables.Chat
                     chatClient.NotifyClosed();
                     break;
                 }
+
                 if (msg == "E")
                 {
                     chatClient.NotifyError();

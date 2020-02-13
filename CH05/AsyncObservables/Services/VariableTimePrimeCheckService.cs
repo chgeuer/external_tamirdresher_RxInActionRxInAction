@@ -3,7 +3,7 @@ namespace AsyncObservables.Services
     using System;
     using System.Threading.Tasks;
 
-    class VariableTimePrimeCheckService : PrimeCheckService
+    internal class VariableTimePrimeCheckService : PrimeCheckService
     {
         private readonly int _numberToDelay;
 

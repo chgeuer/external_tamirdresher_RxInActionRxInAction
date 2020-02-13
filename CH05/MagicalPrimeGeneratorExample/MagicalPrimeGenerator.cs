@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
@@ -88,7 +87,7 @@ namespace MagicalPrimeGeneratorExample
             });
         }
 
-        int GeneratePrime(int index)
+        private int GeneratePrime(int index)
         {
             // Simulate the hard work 
             Thread.Sleep(2000);

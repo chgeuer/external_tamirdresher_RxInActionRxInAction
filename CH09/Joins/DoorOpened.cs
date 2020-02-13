@@ -1,6 +1,6 @@
 namespace Joins
 {
-    class DoorOpened
+    internal class DoorOpened
     {
         public DoorOpened(string name, Gender gender, OpenDirection direction)
         {

@@ -16,10 +16,10 @@ namespace WeakObservers
             });
         }
 
-        class WeakObserverProxy<T>:IObserver<T>
+        private class WeakObserverProxy<T> : IObserver<T>
         {
             private IDisposable _subscriptionToSource;
-            private WeakReference<IObserver<T>> _weakObserver;
+            private readonly WeakReference<IObserver<T>> _weakObserver;
 
             public WeakObserverProxy(IObserver<T> observer)
             {
@@ -31,10 +31,9 @@ namespace WeakObservers
                 _subscriptionToSource = subscriptionToSource;
             }
 
-            void NotifyObserver(Action<IObserver<T>> action)
+            private void NotifyObserver(Action<IObserver<T>> action)
             {
-                IObserver<T> observer;
-                if (_weakObserver.TryGetTarget(out observer))
+                if (_weakObserver.TryGetTarget(out IObserver<T> observer))
                 {
                     action(observer);
                 }
@@ -45,7 +44,7 @@ namespace WeakObservers
             }
             public void OnNext(T value)
             {
-                NotifyObserver(observer=>observer.OnNext(value));
+                NotifyObserver(observer => observer.OnNext(value));
             }
 
             public void OnError(Exception error)
@@ -57,13 +56,13 @@ namespace WeakObservers
             {
                 NotifyObserver(observer => observer.OnCompleted());
             }
-            
+
             public IDisposable AsDisposable()
             {
                 return _subscriptionToSource;
             }
         }
 
-        
+
     }
 }

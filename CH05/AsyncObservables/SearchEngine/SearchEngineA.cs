@@ -4,7 +4,7 @@ namespace AsyncObservables.SearchEngine
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    class SearchEngineA : ISearchEngine
+    internal class SearchEngineA : ISearchEngine
     {
         public async Task<IEnumerable<string>> SearchAsync(string term)
         {

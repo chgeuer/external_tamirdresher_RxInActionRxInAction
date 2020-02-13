@@ -5,7 +5,7 @@
     using System.Reactive.Linq;
     using System.Reactive.Threading.Tasks;
 
-    class SearchEngineExample
+    internal class SearchEngineExample
     {
         public static IObservable<string> Search_WithAsyncAwait(string term)
         {

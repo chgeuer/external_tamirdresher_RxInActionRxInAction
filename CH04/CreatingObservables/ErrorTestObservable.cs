@@ -17,17 +17,18 @@ namespace CreatingObservables
         {
             _amount = amount;
         }
-public IDisposable Subscribe(IObserver<int> observer)
-{
-    for (int i = 0; i < _amount; i++)
-    {
-        observer.OnNext(i);
-    }
-    observer.OnCompleted();
-    
-    // this will be observed by the observer
-    observer.OnNext(_amount);
-    return Disposable.Empty;
-}
+
+        public IDisposable Subscribe(IObserver<int> observer)
+        {
+            for (int i = 0; i < _amount; i++)
+            {
+                observer.OnNext(i);
+            }
+            observer.OnCompleted();
+
+            // this will be observed by the observer
+            observer.OnNext(_amount);
+            return Disposable.Empty;
+        }
     }
 }

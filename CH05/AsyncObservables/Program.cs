@@ -1,17 +1,17 @@
 ﻿namespace AsyncObservables
 {
+    using AsyncObservables.SearchEngine;
+    using AsyncObservables.Services;
+    using Helpers;
     using System;
     using System.Linq;
     using System.Reactive.Disposables;
     using System.Reactive.Linq;
     using System.Threading;
-    using AsyncObservables.SearchEngine;
-    using AsyncObservables.Services;
-    using Helpers;
 
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //Uncomment the example you wish to run
 

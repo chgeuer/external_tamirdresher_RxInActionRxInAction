@@ -1,15 +1,13 @@
-﻿using System;
+﻿using Helpers;
+using System;
 using System.Reactive;
 using System.Reactive.Linq;
-using System.Text;
-using System.Threading;
-using Helpers;
 
 namespace PeriodicAndTimeBasedObservables
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //CreatingPeriodicObservableWithInterval();
             //PeriodicallyGetUpdates();
@@ -43,7 +41,7 @@ namespace PeriodicAndTimeBasedObservables
                     .Timer(TimeSpan.FromSeconds(5))
                     .Select(x => secondObservable);
 
-            var switchingObservable=immediateObservable
+            var switchingObservable = immediateObservable
                 .Merge(scheduledObservable)
                 .Switch()
                 .Timestamp();

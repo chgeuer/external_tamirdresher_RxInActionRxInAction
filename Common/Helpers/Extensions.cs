@@ -66,26 +66,26 @@
         /// <param name="observable"></param>
         /// <param name="msg"></param>
         /// <returns></returns>
-public static IObservable<T> LogWithThread<T>(this IObservable<T> observable, string msg = "")
-{
-    return Observable.Defer(() =>
-     {
-         Console.WriteLine("{0} Subscription happened on Thread: {1}", msg, 
-                            Thread.CurrentThread.ManagedThreadId);
-
-         return observable.Do(
-             x => Console.WriteLine("{0} - OnNext({1}) Thread: {2}", msg, x,
-                                        Thread.CurrentThread.ManagedThreadId),
-             ex =>
+        public static IObservable<T> LogWithThread<T>(this IObservable<T> observable, string msg = "")
+        {
+            return Observable.Defer(() =>
              {
-                 Console.WriteLine("{0} - OnError Thread:{1}", msg,
-                                        Thread.CurrentThread.ManagedThreadId);
-                 Console.WriteLine("\t {0}", ex);
-             },
-             () => Console.WriteLine("{0} - OnCompleted() Thread {1}", msg,
-                                        Thread.CurrentThread.ManagedThreadId));
-     });
-}
+                 Console.WriteLine("{0} Subscription happened on Thread: {1}", msg,
+                                    Thread.CurrentThread.ManagedThreadId);
+
+                 return observable.Do(
+                     x => Console.WriteLine("{0} - OnNext({1}) Thread: {2}", msg, x,
+                                                Thread.CurrentThread.ManagedThreadId),
+                     ex =>
+                     {
+                         Console.WriteLine("{0} - OnError Thread:{1}", msg,
+                                                Thread.CurrentThread.ManagedThreadId);
+                         Console.WriteLine("\t {0}", ex);
+                     },
+                     () => Console.WriteLine("{0} - OnCompleted() Thread {1}", msg,
+                                                Thread.CurrentThread.ManagedThreadId));
+             });
+        }
 
         /// <summary>
         /// Runs a configureable action when the observable completes or emit error 

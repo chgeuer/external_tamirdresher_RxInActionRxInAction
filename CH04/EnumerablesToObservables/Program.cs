@@ -1,20 +1,18 @@
-﻿using System;
+﻿using CreatingObservables.Chat;
+using Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using CreatingObservables.Chat;
-using Helpers;
 
 namespace EnumerablesToObservables
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             EnumerableToObservable();
             SubscribingToEnumerable();
@@ -170,7 +168,7 @@ namespace EnumerablesToObservables
                 .SubscribeConsole("enumerable with exception");
         }
 
-        static IEnumerable<int> NumbersAndThrow()
+        private static IEnumerable<int> NumbersAndThrow()
         {
             Console.WriteLine();
             Demo.DisplayHeader("Numbers and Throw");
@@ -181,7 +179,7 @@ namespace EnumerablesToObservables
             yield return 4;
         }
 
-        static void MergingObservableConnectionWithLoadedMessages()
+        private static void MergingObservableConnectionWithLoadedMessages()
         {
             Console.WriteLine();
             Demo.DisplayHeader("Merging ObservableConnection with loaded messages");

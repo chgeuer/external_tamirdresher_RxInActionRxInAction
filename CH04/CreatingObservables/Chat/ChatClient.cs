@@ -1,6 +1,4 @@
 using System;
-using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
 using System.Reactive.Linq;
 
@@ -8,7 +6,7 @@ namespace CreatingObservables.Chat
 {
     public class ChatClient
     {
-        IList<IChatConnection> _connections = new List<IChatConnection>();
+        private readonly IList<IChatConnection> _connections = new List<IChatConnection>();
         public IChatConnection Connect(string user, string password)
         {
             Console.WriteLine("Connect");
@@ -24,14 +22,14 @@ namespace CreatingObservables.Chat
             return connection.ToObservable();
         }
 
-public IObservable<string> ObserveMessagesDeferred(string user, string password)
-{
-    return Observable.Defer(() =>
-    {
-        var connection = Connect(user, password);
-        return connection.ToObservable();
-    });
-}
+        public IObservable<string> ObserveMessagesDeferred(string user, string password)
+        {
+            return Observable.Defer(() =>
+            {
+                var connection = Connect(user, password);
+                return connection.ToObservable();
+            });
+        }
 
         #region Testing Utils
         public void NotifyRecieved(string msg)

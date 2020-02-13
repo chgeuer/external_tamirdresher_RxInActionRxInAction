@@ -3,10 +3,10 @@ using System.Reactive.Subjects;
 
 namespace Subjects
 {
- class BankAccount
- {
-     Subject<int> _inner = new Subject<int>();
+    internal class BankAccount
+    {
+        private readonly Subject<int> _inner = new Subject<int>();
 
-     public IObservable<int> MoneyTransactions { get { return _inner; } }  
- }
+        public IObservable<int> MoneyTransactions { get { return _inner; } }
+    }
 }

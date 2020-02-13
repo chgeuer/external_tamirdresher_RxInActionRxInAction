@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace AsyncEnumerables
 {
-    class QueueItemsEnumerator : IAsyncEnumerator<QueueItem>
+    internal class QueueItemsEnumerator : IAsyncEnumerator<QueueItem>
     {
         private readonly QueueClient _client;
         private readonly CancellationToken cancellationToken;

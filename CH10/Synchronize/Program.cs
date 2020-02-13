@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Helpers;
+using System;
 using System.Linq;
 using System.Reactive.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using Helpers;
 
 namespace Synchronize
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             OneObservableSynchronization();
             MultipleObservableSynchronization();
@@ -67,28 +64,28 @@ namespace Synchronize
                     h => messenger.FriendRequestRecieved += h,
                     h => messenger.FriendRequestRecieved -= h);
 
-var gate = new object();
+            var gate = new object();
 
-messages
-    .Select(evt => evt.EventArgs)
-    .Synchronize(gate)
-    .Subscribe(msg =>
-    {
-        Console.WriteLine("Message {0} arrived", msg);
-        Thread.Sleep(1000);
-        Console.WriteLine("Message {0} exit", msg);
-    });
+            messages
+                .Select(evt => evt.EventArgs)
+                .Synchronize(gate)
+                .Subscribe(msg =>
+                {
+                    Console.WriteLine("Message {0} arrived", msg);
+                    Thread.Sleep(1000);
+                    Console.WriteLine("Message {0} exit", msg);
+                });
 
 
-friendRequests 
-    .Select(evt => evt.EventArgs)
-    .Synchronize(gate)
-    .Subscribe(request =>
-    {
-        Console.WriteLine("user {0} sent request", request.UserId);
-        Thread.Sleep(1000);
-        Console.WriteLine("user {0} approved", request.UserId);
-    });
+            friendRequests
+                .Select(evt => evt.EventArgs)
+                .Synchronize(gate)
+                .Subscribe(request =>
+                {
+                    Console.WriteLine("user {0} sent request", request.UserId);
+                    Thread.Sleep(1000);
+                    Console.WriteLine("user {0} approved", request.UserId);
+                });
             for (int i = 0; i < 3; i++)
             {
                 string msg = "msg" + i;
@@ -100,7 +97,7 @@ friendRequests
 
                 ThreadPool.QueueUserWorkItem((_) =>
                 {
-                    messenger.Notify(new FriendRequest() {UserId = userId});
+                    messenger.Notify(new FriendRequest() { UserId = userId });
                 });
             }
 

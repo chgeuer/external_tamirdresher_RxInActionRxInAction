@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reactive;
+﻿using Helpers;
+using System;
 using System.Reactive.Linq;
 using System.Runtime;
-using System.Text;
-using System.Threading.Tasks;
-using Helpers;
 
 namespace ReactingToErrors
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             BasicOnError();
             CatchingSpecificExceptionType();

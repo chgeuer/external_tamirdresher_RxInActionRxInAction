@@ -7,14 +7,14 @@ using System.Threading;
 
 namespace ObserveOnAndSubscribeOn
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //SubscribeOnExample();
             //SubscribeOnConfusion();
             SubscribeOnAndObserveOn();
-            
+
             Console.ReadLine();
         }
 
@@ -22,14 +22,14 @@ namespace ObserveOnAndSubscribeOn
         {
             Demo.DisplayHeader("using SubscribeOn and ObserveOn together and their effect");
 
-            ObservableExSSSS.FromValues(0,1,2,3,4,5)
+            ObservableExSSSS.FromValues(0, 1, 2, 3, 4, 5)
     .Take(3)
     .LogWithThread("A")
-    .Where(x => x%2 == 0)
+    .Where(x => x % 2 == 0)
     .LogWithThread("B")
     .SubscribeOn(NewThreadScheduler.Default)
     .LogWithThread("C")
-    .Select(x => x*x)
+    .Select(x => x * x)
     .LogWithThread("D")
     .ObserveOn(TaskPoolScheduler.Default)
     .LogWithThread("E")
@@ -40,24 +40,24 @@ namespace ObserveOnAndSubscribeOn
         {
             Demo.DisplayHeader("SubscribeOn operator - running the unsubscrition on another schdeudler might be confusing since it can take long time to complete");
 
-var eventLoopScheduler = new EventLoopScheduler();
-var subscription =
-    Observable.Interval(TimeSpan.FromSeconds(1))
-        .Do(x => Console.WriteLine("Inside Do"))
-        .SubscribeOn(eventLoopScheduler)
-        .SubscribeConsole();
+            var eventLoopScheduler = new EventLoopScheduler();
+            var subscription =
+                Observable.Interval(TimeSpan.FromSeconds(1))
+                    .Do(x => Console.WriteLine("Inside Do"))
+                    .SubscribeOn(eventLoopScheduler)
+                    .SubscribeConsole();
 
-eventLoopScheduler.Schedule(1,
-    (s, state) =>
-    {
-        Console.WriteLine("Before sleep");
-        Thread.Sleep(TimeSpan.FromSeconds(3));
-        Console.WriteLine("After sleep");
-        return Disposable.Empty;
+            eventLoopScheduler.Schedule(1,
+                (s, state) =>
+                {
+                    Console.WriteLine("Before sleep");
+                    Thread.Sleep(TimeSpan.FromSeconds(3));
+                    Console.WriteLine("After sleep");
+                    return Disposable.Empty;
 
-    });
+                });
 
-subscription.Dispose();
+            subscription.Dispose();
             Console.WriteLine("Subscription disposed");
 
 

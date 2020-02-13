@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DisposableCreate.Annotations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,14 +8,13 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using DisposableCreate.Annotations;
 
 namespace DisposableCreate
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window,INotifyPropertyChanged
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
         private IEnumerable<string> _newsItems;
         private bool _isBusy;
@@ -81,7 +81,7 @@ namespace DisposableCreate
         }
 
 
-        private async Task<IEnumerable<string>>  DownloadNewsItems()
+        private async Task<IEnumerable<string>> DownloadNewsItems()
         {
             await Task.Delay(2000);
             return Enumerable.Range(1, 10).Select(i => "News Items " + i);

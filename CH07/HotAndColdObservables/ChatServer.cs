@@ -16,7 +16,7 @@ namespace HotAndColdObservables
 
         public static ChatServer Current
         {
-            get { return new ChatServer();}
+            get { return new ChatServer(); }
         }
 
         public IObservable<string> ObserveMessages()

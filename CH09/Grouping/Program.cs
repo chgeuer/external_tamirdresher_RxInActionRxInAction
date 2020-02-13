@@ -1,25 +1,25 @@
 ﻿namespace Grouping
 {
+    using Helpers;
     using System;
     using System.Linq;
     using System.Reactive.Linq;
-    using Helpers;
 
-    enum Gender
+    internal enum Gender
     {
         Male,
         Female
     }
 
-    class Person
+    internal class Person
     {
         public Gender Gender { get; set; }
         public int Age { get; set; }
     }
 
-    class Program
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             IObservable<Person> people = new[] {
                 new Person { Gender = Gender.Male, Age = 21 },
@@ -27,7 +27,7 @@
                 new Person { Gender = Gender.Male, Age = 23 },
                 new Person { Gender = Gender.Female, Age = 33 }
             }.ToObservable();
-    
+
             var genderAge =
                 from gender in people.GroupBy(p => p.Gender)
                 from avg in gender.Average(p => p.Age)

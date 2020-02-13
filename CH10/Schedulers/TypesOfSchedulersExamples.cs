@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Helpers;
+using System;
 using System.Reactive;
 using System.Reactive.Concurrency;
 using System.Reactive.Disposables;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using Helpers;
 
 namespace Schedulers
 {
-    static class TypesOfSchedulersExamples
+    internal static class TypesOfSchedulersExamples
     {
         public static void Run()
         {
@@ -292,25 +288,25 @@ namespace Schedulers
             Demo.DisplayHeader("EventLoopScheduler - Creates a designated thread that will run all scheduled actions");
 
 
-var eventLoopScheduler = new EventLoopScheduler();
+            var eventLoopScheduler = new EventLoopScheduler();
 
-var countdownEvent = new CountdownEvent(2);
+            var countdownEvent = new CountdownEvent(2);
 
-Console.WriteLine("Calling thread: {0}", Thread.CurrentThread.ManagedThreadId);
+            Console.WriteLine("Calling thread: {0}", Thread.CurrentThread.ManagedThreadId);
 
-eventLoopScheduler.Schedule(Unit.Default,
-    (s, _) =>
-    {
-        Console.WriteLine("Action1 - Thread:{0}", Thread.CurrentThread.ManagedThreadId);
-        countdownEvent.Signal();
-    });
-eventLoopScheduler.Schedule(Unit.Default,
-    (s, _) =>
-    {
-        Console.WriteLine("Action2 - Thread:{0}", Thread.CurrentThread.ManagedThreadId);
-        countdownEvent.Signal();
-    });
-countdownEvent.Wait();
+            eventLoopScheduler.Schedule(Unit.Default,
+                (s, _) =>
+                {
+                    Console.WriteLine("Action1 - Thread:{0}", Thread.CurrentThread.ManagedThreadId);
+                    countdownEvent.Signal();
+                });
+            eventLoopScheduler.Schedule(Unit.Default,
+                (s, _) =>
+                {
+                    Console.WriteLine("Action2 - Thread:{0}", Thread.CurrentThread.ManagedThreadId);
+                    countdownEvent.Signal();
+                });
+            countdownEvent.Wait();
 
         }
 
@@ -350,24 +346,24 @@ countdownEvent.Wait();
 
             SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
 
-var syncContextScheduler = new SynchronizationContextScheduler(SynchronizationContext.Current);
+            var syncContextScheduler = new SynchronizationContextScheduler(SynchronizationContext.Current);
 
-var countdownEvent = new CountdownEvent(2);
+            var countdownEvent = new CountdownEvent(2);
 
-Console.WriteLine("Calling thread: {0}", Thread.CurrentThread.ManagedThreadId);
+            Console.WriteLine("Calling thread: {0}", Thread.CurrentThread.ManagedThreadId);
 
-syncContextScheduler.Schedule(Unit.Default,
-    (s, _) =>
-    {
-        Console.WriteLine("Action1 - Thread:{0}", Thread.CurrentThread.ManagedThreadId);
-        countdownEvent.Signal();
-    });
-syncContextScheduler.Schedule(Unit.Default,
-    (s, _) =>
-    {
-        Console.WriteLine("Action2 - Thread:{0}", Thread.CurrentThread.ManagedThreadId);
-        countdownEvent.Signal();
-    });
+            syncContextScheduler.Schedule(Unit.Default,
+                (s, _) =>
+                {
+                    Console.WriteLine("Action1 - Thread:{0}", Thread.CurrentThread.ManagedThreadId);
+                    countdownEvent.Signal();
+                });
+            syncContextScheduler.Schedule(Unit.Default,
+                (s, _) =>
+                {
+                    Console.WriteLine("Action2 - Thread:{0}", Thread.CurrentThread.ManagedThreadId);
+                    countdownEvent.Signal();
+                });
             countdownEvent.Wait();
 
         }

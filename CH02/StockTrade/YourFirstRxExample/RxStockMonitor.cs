@@ -17,11 +17,11 @@
             //creating an observable from the StockTick event, each notification will carry only the eventargs and will be synchronized
             IObservable<StockTick> ticks =
                 Observable.FromEventPattern<EventHandler<StockTick>, StockTick>(
-                    h => ticker.StockTick += h, 
-                    h => ticker.StockTick -= h) 
+                    h => ticker.StockTick += h,
+                    h => ticker.StockTick -= h)
                 .Select(tickEvent => tickEvent.EventArgs)
                 .Synchronize();
-            
+
             var drasticChanges =
                 from tick in ticks
                 group tick by tick.QuoteSymbol

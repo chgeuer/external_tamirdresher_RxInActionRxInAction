@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Helpers;
+using System;
 using System.IO;
 using System.Linq;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Helpers;
 
 namespace ResourceHandling
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             TraditionalUsingStatement();
             TheUsingOperator();
@@ -28,10 +25,7 @@ namespace ResourceHandling
 
         }
 
-       
-
-
-        class DisposableType : IDisposable
+        private class DisposableType : IDisposable
         {
             public void Dispose() { /*Freeing the resource*/ }
         }
@@ -65,7 +59,7 @@ namespace ResourceHandling
 
 
         }
-        
+
 
         private static void DeterministicDisposal()
         {
@@ -99,11 +93,11 @@ namespace ResourceHandling
         {
             Demo.DisplayHeader("WeakReference");
 
-            object obj =new object();
+            object obj = new object();
             WeakReference weak = new WeakReference(obj);
 
             GC.Collect();
-            Console.WriteLine("IsAlive: {0} obj!=null is {1}", weak.IsAlive,obj!=null);
+            Console.WriteLine("IsAlive: {0} obj!=null is {1}", weak.IsAlive, obj != null);
 
             obj = null;
             GC.Collect();
@@ -116,10 +110,10 @@ namespace ResourceHandling
         {
             IObservable<int> progress =
                 Observable.Range(1, 3);
-            
+
             progress
-                .Finally(() =>{/*close the window*/})
-                .Subscribe(x =>{/*Update the UI*/});
+                .Finally(() => {/*close the window*/})
+                .Subscribe(x => {/*Update the UI*/});
 
         }
 
@@ -141,13 +135,13 @@ namespace ResourceHandling
 
             Console.WriteLine();
             Console.WriteLine("Unsubscribing");
-            Subject<int> subject=new Subject<int>();
+            Subject<int> subject = new Subject<int>();
             var subscription =
                 subject.AsObservable()
                     .Finally(() => Console.WriteLine("Finally Code"))
                     .SubscribeConsole();
             subscription.Dispose();
-            
+
 
 
 

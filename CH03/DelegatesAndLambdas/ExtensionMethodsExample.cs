@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DelegatesAndLambdas;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DelegatesAndLambdas;
 
 namespace ExtensionMethodsExample
 {
-    static class IntExtensions
+    internal static class IntExtensions
     {
         public static bool IsEven(this int number)
         {
@@ -15,7 +12,7 @@ namespace ExtensionMethodsExample
         }
     }
 
-    static class StringExtensions
+    internal static class StringExtensions
     {
         public static bool IsNullOrEmpty(this string str)
         {
@@ -23,7 +20,7 @@ namespace ExtensionMethodsExample
         }
     }
 
-    class ExtensionMethodsExample
+    internal class ExtensionMethodsExample
     {
         public void ForEachExample()
         {

@@ -8,9 +8,9 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             CreatingWithFullSubscribeOverload();
             CreatingWithSimplestSubscribeOverload();
@@ -18,7 +18,7 @@
             CreatingWithSimplestSubscribeOverloadOnAsyncSource();
             SubscribeWithCancellationInsteadOfDisposable();
             ObserverCreate();
-            
+
             Console.ReadLine();
         }
 

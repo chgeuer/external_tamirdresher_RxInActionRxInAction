@@ -1,7 +1,6 @@
 ﻿namespace System.Reactive.Linq
 {
     using System;
-    using System.Reactive.Linq;
 
     public static partial class ObservableExSSSS
     {

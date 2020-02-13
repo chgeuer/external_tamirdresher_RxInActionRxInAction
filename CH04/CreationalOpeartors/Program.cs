@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Helpers;
+using System;
 using System.IO;
 using System.Linq;
-using System.Reactive;
-using System.Reactive.Disposables;
 using System.Reactive.Linq;
-using System.Reactive.Subjects;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Helpers;
 
 namespace CreationalOpeartors
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             GenerateSequence();
             CreatingRangeObservable();
@@ -32,8 +25,8 @@ namespace CreationalOpeartors
             Console.WriteLine();
             Demo.DisplayHeader("Creating an empty observable");
 
-Observable.Empty<string>()
-    .SubscribeConsole("Empty");
+            Observable.Empty<string>()
+                .SubscribeConsole("Empty");
         }
 
         private static void CreatingObservableTheThrows()
@@ -41,8 +34,8 @@ Observable.Empty<string>()
             Console.WriteLine();
             Demo.DisplayHeader("Creating observable the throws");
 
-Observable.Throw<ApplicationException>(new ApplicationException("something bad happened"))
-    .SubscribeConsole("Throw"); 
+            Observable.Throw<ApplicationException>(new ApplicationException("something bad happened"))
+                .SubscribeConsole("Throw");
 
         }
 
@@ -51,8 +44,8 @@ Observable.Throw<ApplicationException>(new ApplicationException("something bad h
             Console.WriteLine();
             Demo.DisplayHeader("Creating a neverending observable");
 
-Observable.Never<string>()
-    .SubscribeConsole("Never"); //nothing will be printed
+            Observable.Never<string>()
+                .SubscribeConsole("Never"); //nothing will be printed
 
             Console.WriteLine("No notifications will be pushed, press enter to contine");
         }

@@ -9,7 +9,7 @@
     /// </summary>
     public partial class MainWindow : Window
     {
-        private IDisposable _subscription;
+        private readonly IDisposable _subscription;
 
         public MainWindow()
         {

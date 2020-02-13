@@ -1,6 +1,6 @@
 ﻿namespace Subjects
 {
-    enum NetworkConnectivity
+    internal enum NetworkConnectivity
     {
         Connected,
         Disconnected

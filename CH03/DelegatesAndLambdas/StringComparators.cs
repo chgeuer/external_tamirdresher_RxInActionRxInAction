@@ -1,6 +1,6 @@
 namespace DelegatesAndLambdas
 {
-    class StringComparators
+    internal class StringComparators
     {
         public static bool CompareLength(string first, string second)
         {

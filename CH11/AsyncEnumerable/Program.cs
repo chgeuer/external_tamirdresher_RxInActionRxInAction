@@ -5,9 +5,9 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    class Program
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             IAsyncEnumerable<Task<int>> asyncEnumerable = Enumerable.Empty<Task<int>>().ToAsyncEnumerable();
             IAsyncEnumerable<int> enumerable = Task.FromResult(4).ToAsyncEnumerable();

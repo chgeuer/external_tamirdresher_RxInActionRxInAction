@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Helpers;
+using System;
 using System.Linq;
 using System.Reactive.Concurrency;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using Helpers;
 
 namespace Disposables
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //TestMySubscribeOn(); 
             RefCountDisposable();
@@ -23,7 +20,7 @@ namespace Disposables
             Console.ReadLine();
         }
 
-       
+
 
         private static void TestMySubscribeOn()
         {
@@ -80,7 +77,7 @@ namespace Disposables
             var compositeDisposable = new CompositeDisposable();
             IObservable<string> observable = ObservableExSSSS.FromValues("Rx", "For", "The", "Win");
 
-            observable.Where(x => x.Length%2 == 0)
+            observable.Where(x => x.Length % 2 == 0)
                 .Select(x => x.ToUpper())
                 .Subscribe(x => Console.WriteLine(x))
                 .AddToCompositeDisposable(compositeDisposable);

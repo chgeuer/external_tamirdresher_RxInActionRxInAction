@@ -4,17 +4,16 @@ using System.Linq;
 
 namespace LINQExamples
 {
-
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             IntroToLinq.Run();
             Console.ReadLine();
         }
     }
 
-    class IntroToLinq
+    internal class IntroToLinq
     {
         public static void Run()
         {
@@ -62,7 +61,7 @@ namespace LINQExamples
             }
         }
 
-        static IEnumerable<int> GenerateFibonacci()
+        private static IEnumerable<int> GenerateFibonacci()
         {
             int a = 0;
             int b = 1;
@@ -84,7 +83,7 @@ namespace LINQExamples
             }
         }
 
-        static IEnumerable<string> GetGreetings()
+        private static IEnumerable<string> GetGreetings()
         {
             yield return "Hello";
             yield return "Hi";

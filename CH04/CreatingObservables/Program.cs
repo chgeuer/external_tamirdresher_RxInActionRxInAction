@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reactive.Disposables;
-using System.Reactive.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CreatingObservables.Chat;
-using Helpers;
-
-namespace CreatingObservables
+﻿namespace CreatingObservables
 {
-    class Program
+    using CreatingObservables.Chat;
+    using Helpers;
+    using System;
+    using System.Reactive.Disposables;
+    using System.Reactive.Linq;
+
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             HandcraftedObservable();
             EnforcingUnsubscribingObservers();
@@ -49,9 +45,7 @@ namespace CreatingObservables
             Console.WriteLine();
             Demo.DisplayHeader("Enforcing The Observers Unsubscription (OnCompleted/OnError)");
 
-            IObservable<int> errorTestObservable =
-                new ErrorNumbersObservable(5);
-
+            IObservable<int> errorTestObservable = new ErrorNumbersObservable(5);
 
             var consoleObserver = new ConsoleObserver<int>("errorTest");
 
@@ -71,7 +65,6 @@ namespace CreatingObservables
                     return Disposable.Empty;
                 });
             subscription = errorTestObservable.Subscribe(consoleObserver);
-
         }
 
         private static void HandcraftedObservable()

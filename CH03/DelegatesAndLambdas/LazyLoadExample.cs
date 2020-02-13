@@ -2,14 +2,14 @@ using System;
 
 namespace DelegatesAndLambdas
 {
-    class LazyLoadExample
+    internal class LazyLoadExample
     {
-        class HeavyClass
+        private class HeavyClass
         {
             //this is a heavy class that take long time to create
         }
 
-        class ThinClass
+        private class ThinClass
         {
             private HeavyClass _heavy;
             public HeavyClass TheHeavy
@@ -32,9 +32,9 @@ namespace DelegatesAndLambdas
             }
         }
 
-        class ClassWithLazy
+        private class ClassWithLazy
         {
-            Lazy<HeavyClass> _lazyHeavyClass = new Lazy<HeavyClass>(() =>
+            private readonly Lazy<HeavyClass> _lazyHeavyClass = new Lazy<HeavyClass>(() =>
               {
                   var heavy = new HeavyClass();
 

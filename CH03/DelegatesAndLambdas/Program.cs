@@ -1,20 +1,16 @@
-﻿using System;
+﻿using ExtensionMethodsExample;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using ExtensionMethodsExample;
 namespace DelegatesAndLambdas
 {
-    class Program
+    internal class Program
     {
 
         public delegate bool ComparisonTest(string first, string second);
         public delegate void ActionDelegate();
 
-
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             int meaningOfLife = 42;
 
@@ -176,7 +172,7 @@ namespace DelegatesAndLambdas
             return similarByMod;
         }
 
-        static bool AreSimilar(string[] leftItems, string[] rightItems, ComparisonTest tester)
+        private static bool AreSimilar(string[] leftItems, string[] rightItems, ComparisonTest tester)
         {
             if (leftItems.Length != rightItems.Length)
                 return false;

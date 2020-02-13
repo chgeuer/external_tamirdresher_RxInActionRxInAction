@@ -1,26 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FunctionalThinking
 {
-    class Program
+    internal class Program
     {
-        
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //Side Effects
             WriteRedMessage("Side Effects");
             WriteMessage("Side Effects");
-            
+
             //Immutability
             ImmutableStringExample();
             ImmutableStringFixedExample();
         }
 
-       
+
 
         public static void WriteRedMessage(string message)
         {

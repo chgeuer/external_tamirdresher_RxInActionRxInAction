@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LINQExamples
 {
-    static class EnumerableDefferedExtensions
+    internal static class EnumerableDefferedExtensions
     {
         public static IEnumerable<T> WhereWithLog<T>(this IEnumerable<T> source, Func<T, bool> predicate)
         {

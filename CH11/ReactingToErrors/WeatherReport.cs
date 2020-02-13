@@ -1,6 +1,6 @@
 ﻿namespace ReactingToErrors
 {
-    internal class WeatherReport 
+    internal class WeatherReport
     {
         public double Temperature { get; set; }
         public string Station { get; set; }

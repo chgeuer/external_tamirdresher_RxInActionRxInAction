@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ExtensionMethodsExample
 {
-    class FluentInterfacesExample
+    internal class FluentInterfacesExample
     {
         public static void StringBuilderExample()
         {
@@ -57,10 +57,10 @@ namespace ExtensionMethodsExample
             return list;
         }
 
-public static ICollection<T> AddItem<T>(this ICollection<T> list, T item)
-{
-    list.Add(item);
-    return list;
-}
+        public static ICollection<T> AddItem<T>(this ICollection<T> list, T item)
+        {
+            list.Add(item);
+            return list;
+        }
     }
 }

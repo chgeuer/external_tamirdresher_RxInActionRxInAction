@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    class UpdatesWebService
+    internal class UpdatesWebService
     {
         public async Task<IEnumerable<string>> GetUpdatesAsync()
         {

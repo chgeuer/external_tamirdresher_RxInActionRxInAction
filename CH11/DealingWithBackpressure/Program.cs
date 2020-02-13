@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Helpers;
+using System;
 using System.Linq;
 using System.Reactive.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Helpers;
 
 namespace DealingWithBackpressure
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             BackpressureExample();
             LossyBackpressureHandlingUsingCombineLatest();
@@ -22,7 +19,7 @@ namespace DealingWithBackpressure
             Demo.DisplayHeader("Backpressure example - using CombineLatest to drop old notifications (lossy approach)");
 
             var heartRatesValues = new[] { 70, 75, 80, 90, 80 };
-            var speedValues = new[] { 50,51,53,52,55 };
+            var speedValues = new[] { 50, 51, 53, 52, 55 };
 
             var heartRates = Observable.Interval(TimeSpan.FromSeconds(1)).Select(x => heartRatesValues[x % heartRatesValues.Length]);
             var speeds = Observable.Interval(TimeSpan.FromSeconds(3)).Select(x => speedValues[x % speedValues.Length]);

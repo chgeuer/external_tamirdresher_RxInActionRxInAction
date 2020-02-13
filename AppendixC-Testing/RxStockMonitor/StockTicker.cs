@@ -31,7 +31,7 @@ namespace RxStockMonitor
         public decimal Price { get; set; }
     }
 
-    class StockInfo
+    internal class StockInfo
     {
         public string Symbol { get; set; }
         public decimal PrevPrice { get; set; }

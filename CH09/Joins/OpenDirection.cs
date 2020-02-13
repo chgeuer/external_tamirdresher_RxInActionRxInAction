@@ -1,6 +1,6 @@
 namespace Joins
 {
-    enum OpenDirection
+    internal enum OpenDirection
     {
         Entering,
         Leaving

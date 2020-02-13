@@ -1,8 +1,8 @@
-﻿using System;
+﻿using BasicQueryOperators.Model;
+using Helpers;
+using System;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
-using BasicQueryOperators.Model;
-using Helpers;
 
 namespace BasicQueryOperators.Examples
 {

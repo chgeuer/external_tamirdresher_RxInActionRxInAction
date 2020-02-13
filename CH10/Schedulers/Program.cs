@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Helpers;
+using MagicalPrimeGeneratorExample;
+using System;
 using System.Linq;
 using System.Reactive;
 using System.Reactive.Concurrency;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using Helpers;
-using MagicalPrimeGeneratorExample;
 
 namespace Schedulers
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             BasicScheduling();
             BasicSchedulingEveryTwoSeconds();
@@ -28,7 +25,7 @@ namespace Schedulers
             Console.ReadLine();
         }
 
-      
+
         private static void BasicScheduling()
         {
             Demo.DisplayHeader("Basic Scheduling - Scheduling an action to run after two seconds");
@@ -110,7 +107,7 @@ namespace Schedulers
 
             GeneratePrimes(20, TaskPoolScheduler.Default)
                     .RunExample("primes observable");
-            
+
         }
         public static IObservable<int> GeneratePrimes(int amount, IScheduler schdeuler = null)
         {

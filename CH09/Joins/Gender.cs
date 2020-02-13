@@ -1,6 +1,6 @@
 namespace Joins
 {
-    enum Gender
+    internal enum Gender
     {
         Male,
         Female

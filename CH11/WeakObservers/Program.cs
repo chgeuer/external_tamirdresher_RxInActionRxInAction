@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Helpers;
+using System;
 using System.Reactive.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using Helpers;
 
 namespace WeakObservers
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             var subscription =
                 Observable.Interval(TimeSpan.FromSeconds(1))
@@ -25,7 +21,7 @@ namespace WeakObservers
             GC.KeepAlive(subscription);
             Console.WriteLine("Done sleeping");
             Console.WriteLine("removing the strong reference, collecting and sleeping for 2 seconds");
-            
+
             subscription = null;
             GC.Collect();
             Thread.Sleep(2000); //2 seconds 

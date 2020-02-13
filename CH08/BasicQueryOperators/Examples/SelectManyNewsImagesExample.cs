@@ -41,16 +41,16 @@ namespace BasicQueryOperators.Examples
             };
             #endregion
 
-IObservable<NewsItem> news = theNews.ToObservable();
-var newsImages =
-    from n in news
-    from img in n.Images
-    where img.IsChildFriendly
-    select new NewImageViewModel
-    {
-        ItemUrl = n.Url,
-        NewsImage = img
-    };
+            IObservable<NewsItem> news = theNews.ToObservable();
+            var newsImages =
+                from n in news
+                from img in n.Images
+                where img.IsChildFriendly
+                select new NewImageViewModel
+                {
+                    ItemUrl = n.Url,
+                    NewsImage = img
+                };
 
             newsImages
                 .Subscribe(img => AddToHeadlines(img));
@@ -85,17 +85,17 @@ var newsImages =
 
             IObservable<NewsItem> news = theNews.ToObservable();
 
-news.SelectMany(n => n.Images,
-    (newsItem, img) => new NewImageViewModel
-    {
-        ItemUrl = newsItem.Url,
-        NewsImage = img
-    })
-    .Where(vm => vm.NewsImage.IsChildFriendly)
-    .Subscribe(img => AddToHeadlines(img));
+            news.SelectMany(n => n.Images,
+                (newsItem, img) => new NewImageViewModel
+                {
+                    ItemUrl = newsItem.Url,
+                    NewsImage = img
+                })
+                .Where(vm => vm.NewsImage.IsChildFriendly)
+                .Subscribe(img => AddToHeadlines(img));
         }
 
-       
+
 
         private static void SimpleCollectionsFlattening()
         {
@@ -163,7 +163,7 @@ news.SelectMany(n => n.Images,
         public bool IsChildFriendly { get; set; }
     }
 
-    class NewImageViewModel
+    internal class NewImageViewModel
     {
         public NewsImage NewsImage { get; set; }
         public Uri ItemUrl { get; set; }

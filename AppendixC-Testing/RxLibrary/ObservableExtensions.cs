@@ -39,11 +39,11 @@ namespace RxLibrary
             {
                 var windowBoundaries = xs.Throttle(maximalDistance, scheduler);
 
-                 return xs.Window(windowBoundaries).SelectMany(window => window.Take(1));
-             });
+                return xs.Window(windowBoundaries).SelectMany(window => window.Take(1));
+            });
         }
 
-        
+
         public static IObservable<T> FilterBursts<T>(this IObservable<T> src,
             TimeSpan maximalDistance,
             TimeSpan maximalBurstDuration,

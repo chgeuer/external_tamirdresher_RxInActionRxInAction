@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reactive;
 using System.Reactive.Linq;
-using System.Threading.Tasks;
 
 namespace RxLibrary
 {
@@ -18,7 +15,7 @@ namespace RxLibrary
         public const double RISKY_TEMPERATURE = 70;
         public MachineMonitor(
             IConcurrencyProvider concurrencyProvider,
-            ITemperatureSensor temperatureSensor, 
+            ITemperatureSensor temperatureSensor,
             IProximitySensor proximitySensor)
         {
             _concurrencyProvider = concurrencyProvider;
@@ -55,7 +52,7 @@ namespace RxLibrary
                 var riskyTempaeatures = temperatures.Where(t => t >= RISKY_TEMPERATURE);
                 var proximityWindowBoundaries = proximities.Throttle(MaximalTimeWithNoMovementInSeconds);
 
-                
+
                 return (from proximityWindows in proximities.Window(proximityWindowBoundaries)
                         from t in proximityWindows.CombineLatest(riskyTempaeatures, (p, t) => t)
                         select t)

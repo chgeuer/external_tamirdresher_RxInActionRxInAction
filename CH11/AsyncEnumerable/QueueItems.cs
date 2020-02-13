@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace AsyncEnumerables
 {
-    class QueueItems : IAsyncEnumerable<QueueItem>
+    internal class QueueItems : IAsyncEnumerable<QueueItem>
     {
         public IAsyncEnumerator<QueueItem> GetAsyncEnumerator(CancellationToken cancellationToken = default)
         {

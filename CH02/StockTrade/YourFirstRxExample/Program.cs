@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Concurrent;
-using System.Diagnostics;
-using System.Linq;
-using System.Reactive.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace FirstRxExample
 {
-    class Program
+    internal class Program
     {
         private static StockTicker _stockTicker;
 
@@ -31,7 +25,7 @@ namespace FirstRxExample
             var stockMonitor = new RxStockMonitor(_stockTicker);
 
             ShowMenu();
-          
+
             GC.KeepAlive(stockMonitor);
             Console.WriteLine("Press <enter> to continue...");
             Console.ReadLine();

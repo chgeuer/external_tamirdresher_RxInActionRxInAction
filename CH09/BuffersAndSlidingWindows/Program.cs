@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Diagnostics;
+﻿using Helpers;
+using System;
 using System.Linq;
-using System.Net.Sockets;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Reactive.Threading.Tasks;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Helpers;
 
 
 namespace BuffersAndSlidingWindows
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //UsingBufferWithAmount();
             //BufferingHiRateChatMessages();
@@ -106,9 +99,9 @@ namespace BuffersAndSlidingWindows
 
         private static void ControllingTheWindowClosure()
         {
-            Subject<int> numbers=new Subject<int>();
+            Subject<int> numbers = new Subject<int>();
             Subject<Unit> mouseClicks = new Subject<Unit>();
-            var windows=numbers.Window(() => mouseClicks);
+            var windows = numbers.Window(() => mouseClicks);
 
 
 

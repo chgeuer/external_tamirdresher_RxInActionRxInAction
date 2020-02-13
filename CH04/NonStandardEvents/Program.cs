@@ -1,13 +1,13 @@
 ﻿namespace NonStandardEvents
 {
+    using Helpers;
     using System;
     using System.Reactive;
     using System.Reactive.Linq;
-    using Helpers;
 
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             ConvertingNonStandardEvents();
             ConvertingEventsWithNoArguments();
@@ -64,7 +64,7 @@
             }
         }
 
-        static void ConvertingEventsWithNoArguments()
+        private static void ConvertingEventsWithNoArguments()
         {
             Console.WriteLine();
             Demo.DisplayHeader("Converting Events With No Arguments");
@@ -86,7 +86,8 @@
 
     public delegate void NetworkFoundEventHandler(string ssid);
     public delegate void ExtendedNetworkFoundEventHandler(string ssid, int strength);
-    class WifiScanner
+
+    internal class WifiScanner
     {
         public event NetworkFoundEventHandler NetworkFound = delegate { };
         public event ExtendedNetworkFoundEventHandler ExtendedNetworkFound = delegate { };

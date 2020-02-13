@@ -1,6 +1,6 @@
 namespace LINQExamples
 {
-    class Book
+    internal class Book
     {
         public Book(string name, int authorID)
         {

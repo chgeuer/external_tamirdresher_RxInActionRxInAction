@@ -1,6 +1,6 @@
 namespace FirstRxExample
 {
-    class StockInfo
+    internal class StockInfo
     {
         public StockInfo(string symbol, decimal price)
         {

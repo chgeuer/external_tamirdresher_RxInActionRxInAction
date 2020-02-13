@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AsyncObservables.SearchEngine
 {
-    class SearchEngineB : ISearchEngine
+    internal class SearchEngineB : ISearchEngine
     {
         public async Task<IEnumerable<string>> SearchAsync(string term)
         {

@@ -1,25 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Helpers;
+using System;
 using System.Linq;
-using System.Reactive;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
-using System.Text;
-using System.Threading.Tasks;
-using Helpers;
 
 namespace Joins
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Join();
             GroupJoin();
             Console.WriteLine("Press any key to continue");
             Console.ReadLine();
         }
-        
+
         private static void GroupJoin()
         {
             Demo.DisplayHeader("The GroupJoin operator - correlates elements from two observables based on overlapping duration windows and put them in a correlation group");

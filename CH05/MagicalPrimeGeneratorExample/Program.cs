@@ -1,13 +1,13 @@
 ﻿namespace MagicalPrimeGeneratorExample
 {
+    using Helpers;
     using System;
     using System.Reactive.Linq;
     using System.Threading.Tasks;
-    using Helpers;
 
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //GeneratingSynchronously();
             //GeneratingEnumerableAsynchronously().Wait();
@@ -17,7 +17,7 @@
             Console.ReadLine();
         }
 
-      
+
 
         private static void GeneratingWithObservable()
         {
@@ -34,7 +34,7 @@
             Console.WriteLine("Generation is done");
         }
 
-        private async static Task GeneratingEnumerableAsynchronously()
+        private static async Task GeneratingEnumerableAsynchronously()
         {
             Console.WriteLine();
             Demo.DisplayHeader("Generating enumerable asynchronously");

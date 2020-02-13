@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    class StockMonitor : IDisposable
+    internal class StockMonitor : IDisposable
     {
         private readonly StockTicker _ticker;
 
@@ -16,7 +16,7 @@
             _ticker.StockTick += OnStockTick;
         }
 
-        void OnStockTick(object sender, StockTick stockTick)
+        private void OnStockTick(object sender, StockTick stockTick)
         {
             const decimal maxChangeRatio = 0.1m;
             var quoteSymbol = stockTick.QuoteSymbol;

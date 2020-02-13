@@ -3,7 +3,7 @@ namespace AsyncObservables.Services
     using System;
     using System.Threading.Tasks;
 
-    class PrimeCheckService
+    internal class PrimeCheckService
     {
         public virtual async Task<bool> IsPrimeAsync(int number)
         {

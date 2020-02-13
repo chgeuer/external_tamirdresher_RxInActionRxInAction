@@ -1,15 +1,15 @@
 ﻿namespace BasicAggregateOperators
 {
+    using Helpers;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reactive.Linq;
     using System.Reactive.Subjects;
-    using Helpers;
 
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Sum();
             SumWithNulls();
@@ -38,7 +38,7 @@
                     if (largest.Count > 2)
                     {
                         largest.Remove(largest.First()); //keeping only the first two largest items
-        }
+                    }
                     return largest;
                 },
                 largest => largest.FirstOrDefault()) //since the collection is sorted and contain two items at most, the first items is the second largest one 

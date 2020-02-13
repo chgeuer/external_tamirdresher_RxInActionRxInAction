@@ -2,12 +2,12 @@
 
 namespace RxLibrary
 {
-    class ConcurrencyProvider : IConcurrencyProvider
+    internal class ConcurrencyProvider : IConcurrencyProvider
     {
         public ConcurrencyProvider()
         {
             TimeBasedOperations = DefaultScheduler.Instance;
-            Task=TaskPoolScheduler.Default;
+            Task = TaskPoolScheduler.Default;
             Thread = NewThreadScheduler.Default;
 
 #if HAS_DISPATCHER

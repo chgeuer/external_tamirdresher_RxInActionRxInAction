@@ -1,18 +1,17 @@
-﻿using System;
+﻿using Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Helpers;
 
 namespace Subjects
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //SubjectExample();
             //ManySourcesOneCompletionExample();
@@ -88,13 +87,13 @@ namespace Subjects
         {
             Demo.DisplayHeader("ReplaySubject - simulating the usage of RxToBand for showin the heart rate - https://github.com/Reactive-Extensions/RxToBand");
 
-IObservable<int> heartRate = Observable.Range(70, 5);
-ReplaySubject<int> sbj = new ReplaySubject<int>(bufferSize: 20, window: TimeSpan.FromMinutes(2));
+            IObservable<int> heartRate = Observable.Range(70, 5);
+            ReplaySubject<int> sbj = new ReplaySubject<int>(bufferSize: 20, window: TimeSpan.FromMinutes(2));
 
-heartRate.Subscribe(sbj);
+            heartRate.Subscribe(sbj);
 
-// after a while (for example, after the user selected to show the heart rate on the screen)
-var subscription = sbj.SubscribeConsole("HeartRate Graph"); //only 70-74 will be observed
+            // after a while (for example, after the user selected to show the heart rate on the screen)
+            var subscription = sbj.SubscribeConsole("HeartRate Graph"); //only 70-74 will be observed
         }
 
 
@@ -168,7 +167,7 @@ var subscription = sbj.SubscribeConsole("HeartRate Graph"); //only 70-74 will be
 
         }
 
-        static void MergingBySubjectPitfall()
+        private static void MergingBySubjectPitfall()
         {
             Demo.DisplayHeader("Subject - Merging with a Subject leads to confusion - the LiveMessages will not be observed");
 

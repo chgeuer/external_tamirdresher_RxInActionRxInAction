@@ -2,7 +2,6 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <OutputType>Exe</OutputType>
-    
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Helpers\Helpers.csproj" />
@@ -11,7 +10,5 @@
     <PackageReference Include="System.Reactive" Version="4.3.2" />
     <PackageReference Include="System.Reactive.Core" Version="4.3.2" />
     <PackageReference Include="System.Reactive.Interfaces" Version="4.3.2" />
-    <PackageReference Include="System.Reactive.Linq" Version="4.3.2" />
-    <PackageReference Include="System.Reactive.PlatformServices" Version="4.3.2" />
   </ItemGroup>
 </Project>

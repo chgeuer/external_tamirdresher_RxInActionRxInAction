@@ -8,9 +8,9 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             ZippingTwoObservables();
             CombiningLatestValues();
