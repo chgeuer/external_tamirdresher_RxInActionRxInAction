@@ -26,9 +26,7 @@
                 OnNext(3 * oneSecond - 1, Unit.Default),
                 OnNext(4 * oneSecond - 1, Unit.Default),
                 OnNext(5 * oneSecond - 1, Unit.Default),
-
                 OnNext(6 * oneSecond - 1, Unit.Default)
-
             );
             var concurrencyProvider = Substitute.For<IConcurrencyProvider>();
             concurrencyProvider.ReturnsForAll<IScheduler>(testScheduler);

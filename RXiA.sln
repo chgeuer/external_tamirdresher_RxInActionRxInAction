@@ -58,7 +58,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpers", "Common\Helpers\H
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NonStandardEvents", "CH04\NonStandardEvents\NonStandardEvents.csproj", "{49F79703-E5FF-4332-963A-2B7C9635D5F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumerablesToObservablesAndBack", "CH04\EnumerablesToObservables\EnumerablesToObservablesAndBack.csproj", "{EC1367F7-0BCC-40D8-8392-DFE5F8EF6C97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumerablesToObservablesAndBack", "CH04\EnumerablesToObservables\EnumerablesToObservablesAndBack.csproj", "{EC1367F7-0BCC-40D8-8392-DFE5F8EF6C97}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreationalOpeartors", "CH04\CreationalOpeartors\CreationalOpeartors.csproj", "{CDB27ABA-A368-44E7-8618-B82A87496425}"
 EndProject
@@ -127,6 +127,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RxStockMonitor", "AppendixC-Testing\RxStockMonitor\RxStockMonitor.csproj", "{7A354638-9C84-4C63-9B95-A016DBB2DC48}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RxStockMonitor.Tests", "AppendixC-Testing\RxStockMonitor.Tests\RxStockMonitor.Tests.csproj", "{F2C81F87-2774-437D-872C-1BB1B9527137}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourFirstRxExample.Tests", "AppendixC-Testing\YourFirstRxExample.Tests\YourFirstRxExample.Tests.csproj", "{483A05A1-B0F4-43D1-8198-8AD8D441CBDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -876,6 +878,22 @@ Global
 		{F2C81F87-2774-437D-872C-1BB1B9527137}.Release|x64.Build.0 = Release|Any CPU
 		{F2C81F87-2774-437D-872C-1BB1B9527137}.Release|x86.ActiveCfg = Release|Any CPU
 		{F2C81F87-2774-437D-872C-1BB1B9527137}.Release|x86.Build.0 = Release|Any CPU
+		{483A05A1-B0F4-43D1-8198-8AD8D441CBDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{483A05A1-B0F4-43D1-8198-8AD8D441CBDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{483A05A1-B0F4-43D1-8198-8AD8D441CBDA}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{483A05A1-B0F4-43D1-8198-8AD8D441CBDA}.Debug|ARM.Build.0 = Debug|Any CPU
+		{483A05A1-B0F4-43D1-8198-8AD8D441CBDA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{483A05A1-B0F4-43D1-8198-8AD8D441CBDA}.Debug|x64.Build.0 = Debug|Any CPU
+		{483A05A1-B0F4-43D1-8198-8AD8D441CBDA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{483A05A1-B0F4-43D1-8198-8AD8D441CBDA}.Debug|x86.Build.0 = Debug|Any CPU
+		{483A05A1-B0F4-43D1-8198-8AD8D441CBDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{483A05A1-B0F4-43D1-8198-8AD8D441CBDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{483A05A1-B0F4-43D1-8198-8AD8D441CBDA}.Release|ARM.ActiveCfg = Release|Any CPU
+		{483A05A1-B0F4-43D1-8198-8AD8D441CBDA}.Release|ARM.Build.0 = Release|Any CPU
+		{483A05A1-B0F4-43D1-8198-8AD8D441CBDA}.Release|x64.ActiveCfg = Release|Any CPU
+		{483A05A1-B0F4-43D1-8198-8AD8D441CBDA}.Release|x64.Build.0 = Release|Any CPU
+		{483A05A1-B0F4-43D1-8198-8AD8D441CBDA}.Release|x86.ActiveCfg = Release|Any CPU
+		{483A05A1-B0F4-43D1-8198-8AD8D441CBDA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -927,6 +945,7 @@ Global
 		{9C859F1F-43B9-4576-A0C8-73403CB07399} = {0600EF4E-226C-4AC1-BC7A-EC73CF9657A1}
 		{7A354638-9C84-4C63-9B95-A016DBB2DC48} = {0600EF4E-226C-4AC1-BC7A-EC73CF9657A1}
 		{F2C81F87-2774-437D-872C-1BB1B9527137} = {0600EF4E-226C-4AC1-BC7A-EC73CF9657A1}
+		{483A05A1-B0F4-43D1-8198-8AD8D441CBDA} = {0600EF4E-226C-4AC1-BC7A-EC73CF9657A1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F4079238-5D25-4264-8223-98EF9152E623}

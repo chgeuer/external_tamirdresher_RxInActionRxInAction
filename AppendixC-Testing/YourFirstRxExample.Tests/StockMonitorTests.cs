@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reactive.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FakeItEasy;
-using FirstRxExample;
-using Microsoft.Reactive.Testing;
-using Xunit;
-
-namespace YourFirstRxExample.Tests
+﻿namespace YourFirstRxExample.Tests
 {
+    using System.Reactive.Linq;
+    using FakeItEasy;
+    using FirstRxExample;
+    using Microsoft.Reactive.Testing;
+    using Xunit;
+
     public class StockMonitorTests
     {
         [Fact]
@@ -26,13 +21,9 @@ namespace YourFirstRxExample.Tests
             var testScheduler = new TestScheduler();
             var testableObserver = testScheduler.CreateObserver<DrasticChange>();
             var stockTicker = A.Fake<IStockTicker>();
-            A.CallTo(()=>stockTicker.StockTick).
+            // A.CallTo(() => stockTicker.StockTick);
             var rxStockMonitor = new RxStockMonitor(stockTicker);
-
             rxStockMonitor.DrasticChanges.Subscribe(testableObserver);
-
-
-
         }
     }
 }
