@@ -1,8 +1,6 @@
-﻿using System;
+﻿using Microsoft.Reactive.Testing;
 using System.Reactive.Linq;
-using Microsoft.Reactive.Testing;
 using Xunit;
-using RxLibrary;
 
 namespace RxLibrary.Tests
 {
@@ -36,7 +34,7 @@ namespace RxLibrary.Tests
         [Fact]
         public void FilterBursts_TwoBurstAndGapInEachBurst_FirstInEachBurstEmitted()
         {
-            
+
             var scheduler = new TestScheduler();
             var xs = scheduler.CreateHotObservable(
                 OnNext(250, 1),
@@ -65,7 +63,7 @@ namespace RxLibrary.Tests
         public void FilterBursts_TwoBurstAndGapInEachBurst_FirstInEachBurstEmitted_WithTestableObserver()
         {
             var scheduler = new TestScheduler();
-            
+
             // Creating an observable that will emit two bursts of values 1-to-3 and (-1)-to-(-3)
             var xs = scheduler.CreateHotObservable(
                 OnNext(250, 1),

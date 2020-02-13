@@ -1,7 +1,6 @@
 ﻿using Microsoft.Reactive.Testing;
 using System;
 using Xunit;
-using RxLibrary;
 
 
 namespace RxLibrary.Tests
@@ -24,7 +23,7 @@ namespace RxLibrary.Tests
                 OnCompleted<int>(500)
                 );
 
-            var res = scheduler.Start(() => xs.FilterBursts(TimeSpan.FromTicks(10),scheduler));
+            var res = scheduler.Start(() => xs.FilterBursts(TimeSpan.FromTicks(10), scheduler));
 
             res.Messages.AssertEqual(
                 OnNext(250, 1),
@@ -34,7 +33,7 @@ namespace RxLibrary.Tests
             xs.Subscriptions.AssertEqual(
                 Subscribe(Subscribed, 500));
         }
-        
+
         [Fact]
         public void FilterBurstsInColdObservable()
         {
@@ -107,16 +106,16 @@ namespace RxLibrary.Tests
                 OnNext(251, 2),
                 OnNext(252, 3),
                 OnNext(260, 4),
-                
+
                 OnNext(261, 5),
                 OnNext(262, 10),
                 OnNext(263, 11),
                 OnNext(264, 12),
                 OnNext(265, 12),
                 OnNext(270, 12),
-                
+
                 OnNext(272, 12),
-                
+
 
                 OnNext(450, -1),
                 OnNext(451, -2),

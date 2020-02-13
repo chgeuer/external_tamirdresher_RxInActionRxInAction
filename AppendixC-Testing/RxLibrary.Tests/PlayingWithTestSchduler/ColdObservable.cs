@@ -1,10 +1,6 @@
-﻿using System;
+﻿using Microsoft.Reactive.Testing;
 using System.Reactive;
-using System.Reactive.Linq;
-using Microsoft.Reactive.Testing;
 using Xunit;
-using RxLibrary;
-using Xunit.Abstractions;
 
 namespace RxLibrary.Tests
 {
@@ -58,8 +54,8 @@ namespace RxLibrary.Tests
                 new Recorded<Notification<int>>(20, Notification.CreateOnNext<int>(1)),
                 new Recorded<Notification<int>>(40, Notification.CreateOnNext<int>(2)),
                 new Recorded<Notification<int>>(60, Notification.CreateOnCompleted<int>())
-                );                                                                 
-            
+                );
+
             // Creating an observer that captures the emission it recieves
             var testableObserver = testScheduler.CreateObserver<int>();
 
@@ -84,6 +80,6 @@ namespace RxLibrary.Tests
 
         }
 
-       
+
     }
 }
