@@ -60,7 +60,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NonStandardEvents", "CH04\N
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumerablesToObservablesAndBack", "CH04\EnumerablesToObservables\EnumerablesToObservablesAndBack.csproj", "{EC1367F7-0BCC-40D8-8392-DFE5F8EF6C97}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreationalOpeartors", "CH04\CreationalOpeartors\CreationalOpeartors.csproj", "{CDB27ABA-A368-44E7-8618-B82A87496425}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreationalOperators", "CH04\CreationalOpeartors\CreationalOperators.csproj", "{CDB27ABA-A368-44E7-8618-B82A87496425}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleAsyncProgram", "CH05\SimpleAsyncProgram\SimpleAsyncProgram.csproj", "{A3C0062C-81D5-4DFD-8650-0AC3F8260FB2}"
 EndProject

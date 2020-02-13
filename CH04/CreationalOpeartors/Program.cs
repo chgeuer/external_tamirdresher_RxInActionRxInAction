@@ -1,11 +1,11 @@
-﻿using Helpers;
-using System;
-using System.IO;
-using System.Linq;
-using System.Reactive.Linq;
-
-namespace CreationalOpeartors
+﻿namespace CreationalOpeartors
 {
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Reactive.Linq;
+    using Helpers;
+
     internal class Program
     {
         private static void Main(string[] args)
@@ -36,7 +36,6 @@ namespace CreationalOpeartors
 
             Observable.Throw<ApplicationException>(new ApplicationException("something bad happened"))
                 .SubscribeConsole("Throw");
-
         }
 
         private static void CreatingNeverendingObservable()
@@ -57,7 +56,6 @@ namespace CreationalOpeartors
 
             Observable.Return("Hello World")
                 .SubscribeConsole("Return");
-
         }
 
 

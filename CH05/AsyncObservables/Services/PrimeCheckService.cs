@@ -7,8 +7,7 @@ namespace AsyncObservables.Services
     {
         public virtual async Task<bool> IsPrimeAsync(int number)
         {
-            return await Task.Run(() =>
-            {
+            bool check() {
                 for (int j = 2; j <= Math.Sqrt(number); j++)
                 {
                     if (number % j == 0)
@@ -17,7 +16,9 @@ namespace AsyncObservables.Services
                     }
                 }
                 return true;
-            });
+            };
+
+            return await Task.Run(check);
         }
     }
 }

@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reactive.Linq;
-
-
-namespace CreatingObservables.ContinousSearch
+﻿namespace CreatingObservables.ContinousSearch
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Reactive.Linq;
+    using System.Timers;
+
     internal static class Searcher
     {
         public static IObservable<string> Create(string term)
         {
             return Observable.Create<string>(observer =>
             {
-                var timer = new System.Timers.Timer(2000);
+                var timer = new Timer(2000);
                 timer.Elapsed += (sender, args) =>
                 {
                     var results = SearchEngine.Search(term);
@@ -25,7 +25,6 @@ namespace CreatingObservables.ContinousSearch
                 {
                     //timer.d
                 };
-
             });
         }
     }
