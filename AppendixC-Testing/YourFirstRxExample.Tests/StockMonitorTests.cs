@@ -1,4 +1,4 @@
-﻿namespace YourFirstRxExample.Tests
+namespace YourFirstRxExample.Tests
 {
     using System.Reactive.Linq;
     using FakeItEasy;

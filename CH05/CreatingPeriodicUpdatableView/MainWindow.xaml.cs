@@ -1,4 +1,4 @@
-﻿namespace CreatingPeriodicUpdatableView
+namespace CreatingPeriodicUpdatableView
 {
     using System;
     using System.Reactive.Linq;

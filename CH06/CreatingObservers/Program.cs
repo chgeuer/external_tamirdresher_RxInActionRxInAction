@@ -1,4 +1,4 @@
-﻿namespace CreatingObservers
+namespace CreatingObservers
 {
     using Helpers;
     using System;

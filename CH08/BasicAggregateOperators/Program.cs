@@ -1,4 +1,4 @@
-﻿namespace BasicAggregateOperators
+namespace BasicAggregateOperators
 {
     using Helpers;
     using System;

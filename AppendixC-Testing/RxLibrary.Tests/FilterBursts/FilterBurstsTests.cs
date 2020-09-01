@@ -1,4 +1,4 @@
-﻿using Microsoft.Reactive.Testing;
+using Microsoft.Reactive.Testing;
 using System.Reactive.Linq;
 using Xunit;
 

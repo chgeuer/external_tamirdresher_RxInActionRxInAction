@@ -1,4 +1,4 @@
-﻿using Helpers;
+using Helpers;
 using MagicalPrimeGeneratorExample;
 using System;
 using System.Linq;

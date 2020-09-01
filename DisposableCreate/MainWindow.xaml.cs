@@ -1,4 +1,4 @@
-﻿using DisposableCreate.Annotations;
+using DisposableCreate.Annotations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

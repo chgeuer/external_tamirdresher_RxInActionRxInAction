@@ -1,4 +1,4 @@
-﻿using Microsoft.Reactive.Testing;
+using Microsoft.Reactive.Testing;
 using NSubstitute;
 using System;
 using System.Reactive.Concurrency;

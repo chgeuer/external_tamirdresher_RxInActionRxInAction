@@ -1,4 +1,4 @@
-﻿namespace System.Reactive.Linq
+namespace System.Reactive.Linq
 {
     using System;
 

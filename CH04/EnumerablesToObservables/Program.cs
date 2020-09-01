@@ -1,4 +1,4 @@
-﻿using CreatingObservables.Chat;
+using CreatingObservables.Chat;
 using Helpers;
 using System;
 using System.Collections.Generic;

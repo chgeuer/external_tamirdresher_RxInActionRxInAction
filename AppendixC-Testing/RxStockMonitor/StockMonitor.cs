@@ -1,4 +1,4 @@
-﻿namespace RxStockMonitor
+namespace RxStockMonitor
 {
     using System;
     using System.Linq;

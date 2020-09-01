@@ -1,4 +1,4 @@
-﻿namespace ObservablesFromEvents
+namespace ObservablesFromEvents
 {
     using System;
     using System.Reactive;

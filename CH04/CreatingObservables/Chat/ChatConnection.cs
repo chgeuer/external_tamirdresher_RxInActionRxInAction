@@ -1,4 +1,4 @@
-﻿namespace CreatingObservables.Chat
+namespace CreatingObservables.Chat
 {
     using System;
 

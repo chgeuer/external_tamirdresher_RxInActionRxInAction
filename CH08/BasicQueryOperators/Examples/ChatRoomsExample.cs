@@ -1,4 +1,4 @@
-﻿using BasicQueryOperators.Model;
+using BasicQueryOperators.Model;
 using Helpers;
 using System;
 using System.Reactive.Linq;

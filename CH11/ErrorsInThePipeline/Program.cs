@@ -1,4 +1,4 @@
-﻿using Helpers;
+using Helpers;
 using System;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;

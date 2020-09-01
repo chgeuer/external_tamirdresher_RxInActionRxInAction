@@ -1,4 +1,4 @@
-﻿namespace AsyncEnumerables
+namespace AsyncEnumerables
 {
     using System;
     using System.Collections.Generic;

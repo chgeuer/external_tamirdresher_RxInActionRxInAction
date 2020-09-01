@@ -1,4 +1,4 @@
-﻿namespace Subjects
+namespace Subjects
 {
     internal enum NetworkConnectivity
     {

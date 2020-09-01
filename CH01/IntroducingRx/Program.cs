@@ -1,4 +1,4 @@
-﻿namespace IntroducingRx
+namespace IntroducingRx
 {
     using System;
     using System.Linq;

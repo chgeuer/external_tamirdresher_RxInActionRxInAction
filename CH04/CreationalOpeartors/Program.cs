@@ -1,4 +1,4 @@
-﻿namespace CreationalOpeartors
+namespace CreationalOpeartors
 {
     using System;
     using System.IO;

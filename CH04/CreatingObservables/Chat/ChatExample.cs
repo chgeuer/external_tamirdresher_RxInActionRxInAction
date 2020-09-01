@@ -1,4 +1,4 @@
-﻿using Helpers;
+using Helpers;
 using System;
 
 namespace CreatingObservables.Chat

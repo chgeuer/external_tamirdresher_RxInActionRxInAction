@@ -1,4 +1,4 @@
-﻿namespace Disposables
+namespace Disposables
 {
     using System;
     using System.Reactive.Concurrency;

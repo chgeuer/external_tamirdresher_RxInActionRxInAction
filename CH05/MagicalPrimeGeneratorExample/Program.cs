@@ -1,4 +1,4 @@
-﻿namespace MagicalPrimeGeneratorExample
+namespace MagicalPrimeGeneratorExample
 {
     using Helpers;
     using System;

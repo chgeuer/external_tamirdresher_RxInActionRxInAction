@@ -1,4 +1,4 @@
-﻿using DelegatesAndLambdas;
+using DelegatesAndLambdas;
 using System;
 using System.Linq;
 

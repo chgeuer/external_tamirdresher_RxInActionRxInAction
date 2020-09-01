@@ -1,4 +1,4 @@
-﻿namespace ResourceHandling
+namespace ResourceHandling
 {
     internal class SensorData
     {

@@ -1,4 +1,4 @@
-﻿namespace FirstRxExample
+namespace FirstRxExample
 {
     public class StockTick
     {

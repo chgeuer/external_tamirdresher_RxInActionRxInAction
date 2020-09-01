@@ -1,4 +1,4 @@
-﻿namespace CreatingObservables
+namespace CreatingObservables
 {
     using CreatingObservables.Chat;
     using Helpers;
@@ -6,9 +6,9 @@
     using System.Reactive.Disposables;
     using System.Reactive.Linq;
 
-    internal class Program
-    {
-        private static void Main()
+    internal class Prog
+        private statram
+    {ic void Main()
         {
             HandcraftedObservable();
             EnforcingUnsubscribingObservers();

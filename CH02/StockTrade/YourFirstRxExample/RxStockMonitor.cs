@@ -1,4 +1,4 @@
-﻿namespace FirstRxExample
+namespace FirstRxExample
 {
     using System;
     using System.Linq;

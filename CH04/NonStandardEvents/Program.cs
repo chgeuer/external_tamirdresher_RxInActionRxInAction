@@ -1,4 +1,4 @@
-﻿namespace NonStandardEvents
+namespace NonStandardEvents
 {
     using Helpers;
     using System;

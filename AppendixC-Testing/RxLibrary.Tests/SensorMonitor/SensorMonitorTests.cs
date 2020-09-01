@@ -1,4 +1,4 @@
-﻿namespace RxLibrary.Tests
+namespace RxLibrary.Tests
 {
     using System;
     using System.Reactive;

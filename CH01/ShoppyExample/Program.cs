@@ -1,4 +1,4 @@
-﻿namespace ShoppyExample
+namespace ShoppyExample
 {
     using System;
     using System.Collections.Generic;

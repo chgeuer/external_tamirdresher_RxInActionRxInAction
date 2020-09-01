@@ -1,4 +1,4 @@
-﻿namespace CreatingObservables.ContinousSearch
+namespace CreatingObservables.ContinousSearch
 {
     using System;
     using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿using BasicQueryOperators.Examples;
+using BasicQueryOperators.Examples;
 using BasicQueryOperators.Model;
 using Helpers;
 using System;

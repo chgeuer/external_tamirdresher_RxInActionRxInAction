@@ -1,4 +1,4 @@
-﻿namespace Grouping
+namespace Grouping
 {
     using Helpers;
     using System;

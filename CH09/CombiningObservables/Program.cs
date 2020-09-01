@@ -1,4 +1,4 @@
-﻿namespace CombiningObservables
+namespace CombiningObservables
 {
     using Helpers;
     using System;

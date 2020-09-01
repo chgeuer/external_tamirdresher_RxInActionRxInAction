@@ -1,4 +1,4 @@
-﻿namespace AsyncObservables.SearchEngine
+namespace AsyncObservables.SearchEngine
 {
     using System;
     using System.Collections.Generic;

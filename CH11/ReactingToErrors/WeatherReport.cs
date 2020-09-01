@@ -1,4 +1,4 @@
-﻿namespace ReactingToErrors
+namespace ReactingToErrors
 {
     internal class WeatherReport
     {

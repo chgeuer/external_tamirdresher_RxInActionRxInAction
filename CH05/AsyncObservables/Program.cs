@@ -1,4 +1,4 @@
-﻿namespace AsyncObservables
+namespace AsyncObservables
 {
     using AsyncObservables.SearchEngine;
     using AsyncObservables.Services;
